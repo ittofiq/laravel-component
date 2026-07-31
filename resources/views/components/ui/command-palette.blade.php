@@ -19,6 +19,7 @@
     <div
         x-show="open"
         @click="open = false"
+        aria-hidden="true"
         x-transition:enter="transition-opacity duration-200"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -30,6 +31,9 @@
     <div
         x-show="open"
         @click.outside="open = false"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Command palette"
         x-transition:enter="transition-all duration-200 ease-out"
         x-transition:enter-start="opacity-0 scale-95 -translate-y-2"
         x-transition:enter-end="opacity-100 scale-100 translate-y-0"
@@ -47,6 +51,11 @@
                     x-model="query"
                     @input="filter"
                     x-ref="searchInput"
+                    role="combobox"
+                    aria-expanded="true"
+                    aria-autocomplete="list"
+                    aria-controls="command-palette-list"
+                    aria-activedescendant="cp-item-0"
                     x-init="$watch('open', val => { if (val) { query = ''; filter(); $nextTick(() => $refs.searchInput.focus()); } })"
                     placeholder="{{ $placeholder }}"
                     class="flex-1 bg-transparent border-none outline-none text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-sm"
@@ -55,11 +64,14 @@
             </div>
 
             {{-- Results --}}
-            <div class="max-h-80 overflow-y-auto">
+            <div class="max-h-80 overflow-y-auto" role="listbox" id="command-palette-list">
                 <template x-for="(item, index) in filteredItems" :key="item.id">
                     <div
                         @click="select(item); open = false"
                         @mouseenter="highlighted = index"
+                        role="option"
+                        :aria-selected="highlighted === index ? 'true' : 'false'"
+                        :id="'cp-item-' + index"
                         class="flex items-center gap-3 px-4 py-3 cursor-pointer transition-colors text-sm"
                         :class="{
                             'bg-blue-50 dark:bg-blue-900/30': highlighted === index,

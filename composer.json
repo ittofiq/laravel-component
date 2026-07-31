@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/laravel",
+    "name": "bacadev/bacadev",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "Production-ready Tailwind CSS Component Library for Laravel with 101 Blade components.",
+    "keywords": ["laravel", "tailwindcss", "blade", "components", "ui-library"],
     "license": "MIT",
     "require": {
         "php": "^8.3",
@@ -48,6 +48,12 @@
             "@php artisan config:clear --ansi @no_additional_args",
             "@php artisan test"
         ],
+        "lint": [
+            "./vendor/bin/pint --test --ansi"
+        ],
+        "lint-fix": [
+            "./vendor/bin/pint --ansi"
+        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
@@ -77,7 +83,6 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true,
             "php-http/discovery": true
         }
     },

@@ -11,10 +11,16 @@ Route::get('/demo', function () {
 })->name('demo.index');
 
 Route::get('/test', function () {
+    if (app()->environment('production')) {
+        abort(404);
+    }
     return view('test');
 })->name('test');
 
 Route::get('/demo-minimal', function () {
+    if (app()->environment('production')) {
+        abort(404);
+    }
     return view('demo-minimal');
 })->name('demo.minimal');
 
@@ -31,10 +37,16 @@ Route::get('/components/{category}', function (string $category) {
 })->name('components.category');
 
 Route::get('/custom-components', function () {
+    if (app()->environment('production')) {
+        abort(404);
+    }
     return view('custom-components-demo');
 })->name('custom.components');
 
 Route::get('/textarea-demo', function () {
+    if (app()->environment('production')) {
+        abort(404);
+    }
     return view('textarea-demo');
 })->name('textarea.demo');
 

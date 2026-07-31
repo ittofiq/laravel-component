@@ -33,7 +33,7 @@
         type="button"
         @click="on = !on"
         :aria-checked="on"
-        aria-role="switch"
+        role="switch"
         class="relative inline-flex items-center rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 {{ $color['ring'] }} {{ $size['w'] }} {{ $size['h'] }} {{ $disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}"
         :class="on ? '{{ $color['bg'] }}' : 'bg-gray-300 dark:bg-gray-600'"
         {{ $disabled ? 'disabled' : '' }}

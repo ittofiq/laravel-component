@@ -21,5 +21,7 @@ class AppServiceProvider extends ServiceProvider
     {
         // Laravel automatically discovers components from resources/views/components
         // Namespace format: x-folder.component-name maps to resources/views/components/folder/component-name.blade.php
+
+        \Illuminate\Database\Eloquent\Model::shouldBeStrict(!$this->app->isProduction());
     }
 }

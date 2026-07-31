@@ -10,6 +10,7 @@
     <div
         x-show="isOpen"
         @click="close"
+        aria-hidden="true"
         x-transition:enter="transition-opacity duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -21,6 +22,10 @@
     <div
         x-show="isOpen"
         @keydown.escape="close"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="{{ $title ? 'drawer-title-' . $id : '' }}"
+        aria-label="{{ $title ? '' : 'Drawer' }}"
         x-transition:enter="transition-transform duration-300 ease-out"
         x-transition:enter-start="{{ $position === 'left' ? '-translate-x-full' : 'translate-x-full' }}"
         x-transition:enter-end="translate-x-0"
@@ -33,9 +38,9 @@
         <div class="p-6">
             <div class="flex items-center justify-between mb-4">
                 @if($title)
-                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">{{ $title }}</h2>
+                    <h2 id="drawer-title-{{ $id }}" class="text-xl font-bold text-gray-900 dark:text-white">{{ $title }}</h2>
                 @endif
-                <button @click="close" class="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400">
+                <button @click="close" aria-label="Close drawer" class="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-500 dark:text-gray-400">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
             </div>

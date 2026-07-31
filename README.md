@@ -14,14 +14,14 @@ BacaDev adalah component library dengan **101 production-ready komponen** yang d
 - **Tailwind CSS 4.0** - Utility-first styling
 - **Laravel Blade** - Template engine
 - **Alpine.js** - Lightweight interactivity
-- **Zero External Dependencies** - Hanya Tailwind + Alpine
+- **Minimal Dependencies** - Tailwind CSS + Alpine.js + Chart.js
 
 ### ✨ Fitur Utama
 
 ✅ **101 Komponen** - UI, Form, Data, Navigation, Overlay, Feedback, Layout, Custom  
 ✅ **100% Dark Mode** - Full support di semua komponen  
 ✅ **Fully Responsive** - Mobile-first design  
-✅ **No Dependencies** - Hanya Tailwind CSS & Alpine.js  
+✅ **Minimal Dependencies** - Tailwind CSS, Alpine.js & Chart.js  
 ✅ **Production Ready** - Tested & optimized  
 ✅ **Easy to Use** - Simple Blade syntax: `<x-component-name />`  
 ✅ **Keyboard Shortcuts** - Navigasi global (G + key) + panduan (?)  
@@ -59,19 +59,19 @@ php artisan serve
 npm run dev
 ```
 
-Akses: http://localhost:8100
+Akses: http://localhost:8000
 
 ### 3. View Components
 
-- **Full Showcase**: http://localhost:8100/components
-- **Demo Hub**: http://localhost:8100/demo
-- **Home Page**: http://localhost:8100
+- **Full Showcase**: http://localhost:8000/components
+- **Demo Hub**: http://localhost:8000/demo
+- **Home Page**: http://localhost:8000
 
 ---
 
 ## 📂 Komponen Categories
 
-### 🎨 UI Components (23)
+### 🎨 UI Components (24)
 Button, Badge, Avatar, Avatar Group, Card, Tag, Chip, Divider, Cookie Consent, Share Button, Drag & Drop List, Tree View, Command Palette, Context Menu, Scroll to Top, Lazy Image, Countdown, Dark Mode Preview, Notification Badge, Code Block, Mobile Preview, Image Compare, Page Skeleton
 
 ### 📝 Form Components (27)
@@ -221,7 +221,7 @@ Mobile-first approach dengan Tailwind breakpoints (sm, md, lg, xl, 2xl)
 | Metric | Value |
 |--------|-------|
 | Total Components | 101 |
-| UI Components | 23 |
+| UI Components | 24 |
 | Form Components | 27 |
 | Data Components | 9 |
 | Navigation Components | 9 |
@@ -231,14 +231,14 @@ Mobile-first approach dengan Tailwind breakpoints (sm, md, lg, xl, 2xl)
 | Custom Components | 8 |
 | Dark Mode Support | 100% |
 | Responsive Breakpoints | 5 |
-| External Dependencies | 0 |
+| External Dependencies | Alpine.js + Chart.js |
 
 ---
 
 ## 🛠️ Development
 
 ### Tech Stack
-- **Backend**: Laravel 11
+- **Backend**: Laravel 13.8
 - **Frontend**: Tailwind CSS 4.0, Alpine.js 3.x
 - **Build Tool**: Vite
 - **Package Manager**: npm, Composer
@@ -252,18 +252,4 @@ Mobile-first approach dengan Tailwind breakpoints (sm, md, lg, xl, 2xl)
 
 ---
 
-## 📄 License
-
-MIT License - feel free to use in your projects!
-
----
-
 **Happy coding! 🚀**
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

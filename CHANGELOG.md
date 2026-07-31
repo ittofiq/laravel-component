@@ -4,7 +4,7 @@ Semua perubahan penting di BacaDev Component Library dicatat di file ini.
 
 ---
 
-## [5.2] - Agustus 2026
+## [5.2] - Juli 2026
 
 ### ✨ 3 Komponen Baru
 

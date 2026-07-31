@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- PHP 8.1+ 
+- PHP 8.3+ 
 - Node.js 16+
 - Composer
 - Git
@@ -119,25 +119,19 @@ git push heroku main
 
 ### Tailwind Configuration
 
-File: `tailwind.config.js`
+Tailwind v4 menggunakan CSS-based configuration. Theme dikonfigurasi di `resources/css/app.css`:
 
-```javascript
-module.exports = {
-  content: [
-    './resources/views/**/*.blade.php',
-    './resources/components/**/*.blade.php',
-  ],
-  theme: {
-    extend: {
-      colors: {
-        // Custom colors
-      },
-    },
-  },
-  plugins: [],
-  darkMode: 'class', // or 'media'
+```css
+@import 'tailwindcss';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif;
 }
+
+@custom-variant dark (&:where(.dark, .dark *));
 ```
+
+Untuk custom theme, tambahkan variabel CSS di dalam blok `@theme`.
 
 ### Vite Configuration
 
@@ -145,7 +139,7 @@ File: `vite.config.js`
 
 ```javascript
 import { defineConfig } from 'vite'
-import laravel from 'laravel-plugin-vite'
+import laravel from 'laravel-vite-plugin'
 
 export default defineConfig({
   plugins: [
@@ -215,8 +209,7 @@ composer install --no-scripts
 # Restart Vite dev server
 npm run dev
 
-# Check if Tailwind config is correct
-# Ensure resources/css/app.css is in vite.config.js
+# Ensure resources/css/app.css is properly configured
 ```
 
 ---
@@ -247,7 +240,6 @@ bacadev/
 ├── routes/
 │   └── web.php                # Web routes
 ├── public/                     # Static assets
-├── tailwind.config.js         # Tailwind configuration
 ├── vite.config.js             # Vite configuration
 ├── package.json               # Node dependencies
 ├── composer.json              # PHP dependencies

@@ -14,10 +14,10 @@
 
 @if($orientation === 'vertical')
     {{-- Vertical Stepper --}}
-    <div class="space-y-0">
+    <div class="space-y-0" role="list" aria-label="Progress steps">
         @foreach($steps as $index => $step)
             @php $stepNum = $index + 1; $isActive = $stepNum === $current; $isDone = $stepNum < $current; @endphp
-            <div class="flex gap-4">
+            <div class="flex gap-4" role="listitem" aria-current="{{ $isActive ? 'step' : 'false' }}">
                 <div class="flex flex-col items-center">
                     {{-- Circle --}}
                     <div class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold transition-all duration-300 z-10
@@ -48,10 +48,10 @@
     </div>
 @else
     {{-- Horizontal Stepper --}}
-    <div class="flex items-start justify-between">
+    <div class="flex items-start justify-between" role="list" aria-label="Progress steps">
         @foreach($steps as $index => $step)
             @php $stepNum = $index + 1; $isActive = $stepNum === $current; $isDone = $stepNum < $current; @endphp
-            <div class="flex-1 flex flex-col items-center relative">
+            <div class="flex-1 flex flex-col items-center relative" role="listitem" aria-current="{{ $isActive ? 'step' : 'false' }}">
                 {{-- Connector Line --}}
                 @if($index > 0)
                     <div class="absolute top-5 right-1/2 w-full h-1 -translate-y-1/2 {{ $stepNum <= $current ? 'bg-blue-500' : 'bg-gray-200 dark:bg-gray-600' }}" style="z-index: 0;"></div>

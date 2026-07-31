@@ -20,6 +20,9 @@
     {{-- Context Menu --}}
     <div
         x-show="show"
+        role="menu"
+        aria-label="Context menu"
+        aria-orientation="vertical"
         x-transition:enter="transition-all duration-150 ease-out"
         x-transition:enter-start="opacity-0 scale-95"
         x-transition:enter-end="opacity-100 scale-100"
@@ -33,11 +36,12 @@
         <template x-for="(item, index) in items" :key="index">
             <div>
                 {{-- Divider --}}
-                <div x-show="item.divider" class="my-1.5 border-t border-gray-200 dark:border-gray-700"></div>
+                <div x-show="item.divider" role="separator" class="my-1.5 border-t border-gray-200 dark:border-gray-700"></div>
 
                 {{-- Item --}}
                 <button
                     x-show="!item.divider"
+                    role="menuitem"
                     @click="handleClick(item); show = false"
                     class="w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors text-left"
                     :class="{

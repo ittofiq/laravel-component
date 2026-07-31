@@ -1,6 +1,6 @@
 # 📋 Component List & Usage Guide
 
-## 🎨 UI Components (23)
+## 🎨 UI Components (24)
 
 ### 1. Button
 ```blade
@@ -614,7 +614,7 @@ Kebanyakan komponen support props berikut:
 
 | Category | Count | Components |
 |----------|-------|------------|
-| UI | 23 | Button, Badge, Avatar, Avatar Group, Cookie Consent, Share Button, Drag & Drop List, Tree View, Command Palette, Context Menu, Scroll to Top, Lazy Image, Countdown, Dark Mode Preview, Notification Badge, Code Block, Live Code Editor, Card, Tag, Chip, Divider, Mobile Preview, Image Compare, Page Skeleton |
+| UI | 24 | Button, Badge, Avatar, Avatar Group, Cookie Consent, Share Button, Drag & Drop List, Tree View, Command Palette, Context Menu, Scroll to Top, Lazy Image, Countdown, Dark Mode Preview, Notification Badge, Code Block, Live Code Editor, Card, Tag, Chip, Divider, Mobile Preview, Image Compare, Page Skeleton |
 | Form | 27 | Input, Password Input, OTP Input, Chip Input, Range Slider, Input Group, Floating Label, Textarea, Select, Checkbox, Radio, Toggle, Date Input, Time Input, DateTime Input, Date Picker, Auto-Complete, Multi-Select, Image Uploader, Color Picker, File Upload, Styled File Input, Search Input, Combobox, Form Wizard, Rating Input, Rich Text Editor |
 | Data | 9 | Table, Advanced Table, Timeline, Kanban, Calendar, Progress Bar, Stat Card, Charts (Chart.js), Card Grid |
 | Navigation | 9 | Navbar, Breadcrumb, Pagination, Tabs, Stepper, Dropdown, Dropdown Item, Mobile Menu, Sidebar |

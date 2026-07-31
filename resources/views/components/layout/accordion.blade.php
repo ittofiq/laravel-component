@@ -8,6 +8,9 @@
         <div x-data="{ open: false }" class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
             <button
                 @click="open = !open"
+                :aria-expanded="open.toString()"
+                aria-controls="accordion-panel-{{ $index }}"
+                id="accordion-header-{{ $index }}"
                 class="w-full px-6 py-4 flex items-center justify-between bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
             >
                 <span class="font-semibold text-gray-900 dark:text-white">{{ $item['title'] }}</span>
@@ -17,6 +20,10 @@
             </button>
             <div
                 x-show="open"
+                role="region"
+                aria-labelledby="accordion-header-{{ $index }}"
+                id="accordion-panel-{{ $index }}"
+                :aria-hidden="(!open).toString()"
                 x-transition:enter="transition-all duration-300 ease-out"
                 x-transition:enter-start="opacity-0 max-h-0 py-0"
                 x-transition:enter-end="opacity-100 max-h-96 py-4"

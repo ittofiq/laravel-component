@@ -21,4 +21,15 @@ export default defineConfig({
             ignored: ['**/storage/framework/views/**'],
         },
     },
+    build: {
+        chunkSizeWarningLimit: 1000,
+        rollupOptions: {
+            output: {
+                manualChunks: {
+                    alpine: ['alpinejs'],
+                    chart: ['chart.js'],
+                },
+            },
+        },
+    },
 });

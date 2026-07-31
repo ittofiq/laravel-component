@@ -25,6 +25,8 @@
 @endphp
 
 <div x-data="{ active: {{ $activeTab }} }"
+    role="tablist"
+    aria-orientation="{{ $isVertical ? 'vertical' : 'horizontal' }}"
     class="{{ $isVertical ? 'flex gap-6' : 'space-y-4' }}">
 
     {{-- Tab Navigation --}}
@@ -39,6 +41,10 @@
             @endphp
             <button
                 @click="active = {{ $index }}"
+                role="tab"
+                :aria-selected="active === {{ $index }} ? 'true' : 'false'"
+                aria-controls="tab-panel-{{ $index }}"
+                id="tab-{{ $index }}"
                 class="group relative whitespace-nowrap transition-all duration-200 flex items-center gap-2
                     {{ $isPills
                         ? 'px-4 py-2 rounded-lg text-sm font-medium ' . ($index == $activeTab ? $c['pill'] : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700')
@@ -84,6 +90,9 @@
         @foreach($tabs as $index => $tab)
             <div
                 x-show="active === {{ $index }}"
+                role="tabpanel"
+                aria-labelledby="tab-{{ $index }}"
+                id="tab-panel-{{ $index }}"
                 @if($animation === 'fade')
                     x-transition:enter="transition ease-out duration-300"
                     x-transition:enter-start="opacity-0 transform translate-y-2"

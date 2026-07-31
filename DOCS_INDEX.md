@@ -103,14 +103,14 @@ BacaDev Component Library Documentation
 ## 🆕 What's New in v5.2
 
 **3 Komponen Baru + Halaman Demo Enhanced:**
-- Share Button — Social share buttons dengan 3 varian
-- Live Code Editor — Split-pane HTML editor dengan real-time preview
-- Props Table — Komponen reusable API documentation table
+- Mobile Preview — Device mockup (iPhone 15 Pro) untuk preview komponen di ukuran mobile 375px
+- Image Compare — Before/after slider comparison dengan drag handle interaktif
+- Page Skeleton — Full page skeleton loading dengan 3 layout: dashboard, blog, list
 
 **Peningkatan:**
-- Props API collapsible section di semua 20 card komponen
-- Props Playground interaktif (Button, Badge, Share Button)
-- 21 komponen UI tertampil lengkap di halaman demo
+- 15+ komponen ditingkatkan (Table, Card, Modal, Tabs, Dropdown, Navbar, Tooltip, Alert, Breadcrumb, Pagination, Avatar, Sidebar, Mobile Menu, Charts, Keyboard Shortcuts)
+- Enhanced demo pages (UI, Form, Layout pages)
+- 24 komponen UI tertampil lengkap di halaman demo
 
 → See more in [CHANGELOG.md](CHANGELOG.md)
 

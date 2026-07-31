@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'BacaDev - Component Library')
+
 @section('content')
 <div class="container mx-auto px-4 py-16">
     {{-- Hero --}}

@@ -9,6 +9,7 @@
     <div
         x-show="isOpen"
         @click="close"
+        aria-hidden="true"
         x-transition:enter="transition-opacity duration-300"
         x-transition:enter-start="opacity-0"
         x-transition:enter-end="opacity-100"
@@ -20,6 +21,10 @@
     <div
         x-show="isOpen"
         @keydown.escape="close"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="{{ $title ? 'sheet-title-' . $id : '' }}"
+        aria-label="{{ $title ? '' : 'Bottom sheet' }}"
         x-transition:enter="transition-transform duration-300 ease-out"
         x-transition:enter-start="translate-y-full"
         x-transition:enter-end="translate-y-0"
@@ -31,9 +36,9 @@
     >
         {{-- Handle --}}
         <div class="sticky top-0 bg-white dark:bg-gray-800 pt-3 pb-2 px-6 rounded-t-2xl">
-            <div class="w-10 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3"></div>
+            <div class="w-10 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-auto mb-3" aria-hidden="true"></div>
             @if($title)
-                <h2 class="text-lg font-bold text-gray-900 dark:text-white">{{ $title }}</h2>
+                <h2 id="sheet-title-{{ $id }}" class="text-lg font-bold text-gray-900 dark:text-white">{{ $title }}</h2>
             @endif
         </div>
         <div class="px-6 pb-6">
