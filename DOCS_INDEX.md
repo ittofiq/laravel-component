@@ -57,6 +57,18 @@ BacaDev Component Library Documentation
 
 ---
 
+### 5. **[THEMING.md](THEMING.md)** - Theme Customization Guide
+- Mengubah font & typography
+- Kustomisasi warna (override atau brand baru)
+- Dark mode configuration
+- Spacing, radius, dan token lain
+- Custom utility & component class
+- Contoh rebranding lengkap
+
+**Read this** ketika ingin mengubah tampilan visual library (warna, font, tema).
+
+---
+
 ## 🎯 Quick Navigation
 
 ### Ingin Setup Project?
@@ -81,6 +93,7 @@ BacaDev Component Library Documentation
 ├── 📄 INSTALLATION.md        # Setup & installation
 ├── 📄 COMPONENTS.md          # Component reference
 ├── 📄 CHANGELOG.md           # Version history
+├── 📄 THEMING.md             # Theme customization guide
 ├── 📄 DOCS_INDEX.md          # This file
 │
 └── 📁 resources/views/

@@ -293,9 +293,9 @@ Loader, Rating, Product Card, Shopping Cart, User Profile, Notification Badge, W
 - [x] Dark mode konsisten di semua halaman
 - [x] TypeScript support — full conversion (strict mode, interfaces, type declarations)
 - [x] Accessibility audit (partial) — ARIA di 8 komponen interaktif (tabs, accordion, drawer, dll.)
+- [x] Theme customization guide — THEMING.md (font, warna, dark mode, custom utility)
 
 ### Mendatang
-- [ ] Theme customization guide
 - [ ] Storybook integration
 - [ ] Visual regression testing
 - [ ] Accessibility audit (lanjutan) — focus trap, arrow-key navigation, skip-link menyeluruh
