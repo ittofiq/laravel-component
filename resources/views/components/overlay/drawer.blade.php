@@ -22,6 +22,13 @@
     <div
         x-show="isOpen"
         @keydown.escape="close"
+        @keydown.tab="
+            const focusables = $el.querySelectorAll('button, [href], input, select, textarea, [tabindex]');
+            if (!focusables.length) return;
+            const first = focusables[0], last = focusables[focusables.length - 1];
+            if ($event.shiftKey && document.activeElement === first) { $event.preventDefault(); last.focus(); }
+            else if (!$event.shiftKey && document.activeElement === last) { $event.preventDefault(); first.focus(); }
+        "
         role="dialog"
         aria-modal="true"
         aria-labelledby="{{ $title ? 'drawer-title-' . $id : '' }}"
@@ -58,6 +65,14 @@ function drawerComponent(position, drawerId) {
         init() {
             window['openDrawer_' + this.drawerId] = () => this.open();
             window['closeDrawer_' + this.drawerId] = () => this.close();
+            this.$watch('isOpen', (val) => {
+                if (val) {
+                    this.$nextTick(() => {
+                        const f = this.$el.querySelectorAll('button, [href], input, select, textarea, [tabindex]');
+                        if (f.length) f[0].focus();
+                    });
+                }
+            });
         },
         open() { this.isOpen = true; },
         close() { this.isOpen = false; },

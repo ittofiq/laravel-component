@@ -19,6 +19,13 @@
     >
         <div
             @click.outside="open = false"
+            @keydown.tab="
+                const focusables = $el.querySelectorAll('button, [href], input, select, textarea, [tabindex]');
+                if (!focusables.length) return;
+                const first = focusables[0], last = focusables[focusables.length - 1];
+                if ($event.shiftKey && document.activeElement === first) { $event.preventDefault(); last.focus(); }
+                else if (!$event.shiftKey && document.activeElement === last) { $event.preventDefault(); first.focus(); }
+            "
             role="alertdialog"
             aria-modal="true"
             aria-labelledby="confirm-title-{{ $id }}"
@@ -54,6 +61,14 @@ function confirmDialog(dialogId) {
         init() {
             window['openConfirm_' + dialogId] = () => this.open = true;
             window['closeConfirm_' + dialogId] = () => this.open = false;
+            this.$watch('open', (val) => {
+                if (val) {
+                    this.$nextTick(() => {
+                        const f = this.$el.querySelectorAll('button, [href], input, select, textarea, [tabindex]');
+                        if (f.length) f[0].focus();
+                    });
+                }
+            });
         }
     };
 }

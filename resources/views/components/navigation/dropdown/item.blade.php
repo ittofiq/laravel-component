@@ -9,7 +9,7 @@
 ])
 
 @if($type === 'divider')
-    <div class="my-1 border-t border-gray-200 dark:border-gray-700"></div>
+    <div role="separator" class="my-1 border-t border-gray-200 dark:border-gray-700"></div>
 @elseif($type === 'header')
     <p class="px-4 py-1.5 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
         {{ $slot }}
@@ -24,6 +24,9 @@
     >
         <button
             @click="subOpen = !subOpen"
+            role="menuitem"
+            aria-haspopup="true"
+            :aria-expanded="subOpen"
             class="w-full flex items-center gap-3 px-4 py-2.5 text-sm transition-colors text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer"
         >
             @if($icon) <span class="text-base flex-shrink-0 w-4 text-center">{{ $icon }}</span> @endif
@@ -51,6 +54,8 @@
 @else
     <a
         href="{{ $disabled ? '#' : $href }}"
+        role="menuitem"
+        {{ $disabled ? 'aria-disabled="true"' : '' }}
         class="flex items-center gap-3 px-4 py-2.5 text-sm transition-colors
             {{ $disabled
                 ? 'text-gray-400 dark:text-gray-500 cursor-not-allowed'

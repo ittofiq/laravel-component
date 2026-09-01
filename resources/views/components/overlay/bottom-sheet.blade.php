@@ -21,6 +21,13 @@
     <div
         x-show="isOpen"
         @keydown.escape="close"
+        @keydown.tab="
+            const focusables = $el.querySelectorAll('button, [href], input, select, textarea, [tabindex]');
+            if (!focusables.length) return;
+            const first = focusables[0], last = focusables[focusables.length - 1];
+            if ($event.shiftKey && document.activeElement === first) { $event.preventDefault(); last.focus(); }
+            else if (!$event.shiftKey && document.activeElement === last) { $event.preventDefault(); first.focus(); }
+        "
         role="dialog"
         aria-modal="true"
         aria-labelledby="{{ $title ? 'sheet-title-' . $id : '' }}"
@@ -56,6 +63,14 @@ function bottomSheet() {
             const sheetId = el.closest('[id]')?.id || 'sheet';
             window['openSheet_' + sheetId] = () => this.open();
             window['closeSheet_' + sheetId] = () => this.close();
+            this.$watch('isOpen', (val) => {
+                if (val) {
+                    this.$nextTick(() => {
+                        const f = this.$el.querySelectorAll('button, [href], input, select, textarea, [tabindex]');
+                        if (f.length) f[0].focus();
+                    });
+                }
+            });
         },
         open() { this.isOpen = true; },
         close() { this.isOpen = false; },

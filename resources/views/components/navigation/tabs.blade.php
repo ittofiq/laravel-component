@@ -24,7 +24,22 @@
     $animations = ['fade' => 'x-transition:enter', 'slide' => 'x-transition:enter-start', 'none' => ''];
 @endphp
 
-<div x-data="{ active: {{ $activeTab }} }"
+<div x-data="{
+        active: {{ $activeTab }},
+        total: {{ count($tabs) }},
+        tabs() { return this.$el.querySelectorAll('[role=tab]'); },
+        activate(i) {
+            const tabs = this.tabs();
+            if (!tabs.length) return;
+            const idx = ((i % this.total) + this.total) % this.total;
+            this.active = idx;
+            tabs[idx].focus();
+        },
+        next() { this.activate(this.active + 1); },
+        prev() { this.activate(this.active - 1); },
+        first() { this.activate(0); },
+        last() { this.activate(this.total - 1); }
+    }"
     role="tablist"
     aria-orientation="{{ $isVertical ? 'vertical' : 'horizontal' }}"
     class="{{ $isVertical ? 'flex gap-6' : 'space-y-4' }}">
@@ -41,6 +56,15 @@
             @endphp
             <button
                 @click="active = {{ $index }}"
+                @if($isVertical)
+                    @keydown.arrow-down.prevent="next()"
+                    @keydown.arrow-up.prevent="prev()"
+                @else
+                    @keydown.arrow-right.prevent="next()"
+                    @keydown.arrow-left.prevent="prev()"
+                @endif
+                @keydown.home.prevent="first()"
+                @keydown.end.prevent="last()"
                 role="tab"
                 :aria-selected="active === {{ $index }} ? 'true' : 'false'"
                 aria-controls="tab-panel-{{ $index }}"

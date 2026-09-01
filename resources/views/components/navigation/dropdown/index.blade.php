@@ -18,6 +18,27 @@
         close() { this.open = false; this.subOpen = null; },
         closeSub() { this.subOpen = null; },
 
+        menuItems() { return this.$refs.panel ? this.$refs.panel.querySelectorAll('[role=menuitem]') : []; },
+
+        focusMenu(dir) {
+            const items = Array.from(this.menuItems()).filter(el => el.offsetParent !== null);
+            if (!items.length) return;
+            const current = items.indexOf(document.activeElement);
+            let next;
+            if (dir === 'first') next = 0;
+            else if (dir === 'last') next = items.length - 1;
+            else if (current === -1) next = dir === 'next' ? 0 : items.length - 1;
+            else next = dir === 'next' ? current + 1 : current - 1;
+            if (next < 0) next = items.length - 1;
+            if (next >= items.length) next = 0;
+            items[next].focus();
+        },
+
+        openAndFocus(down) {
+            this.open = true;
+            this.$nextTick(() => { this.focusMenu(down ? 'first' : 'last'); });
+        },
+
         checkFlip() {
             @if($autoFlip)
                 $nextTick(() => {
@@ -49,6 +70,11 @@
     {{-- Trigger Button --}}
     <button
         @click="{{ $trigger === 'click' ? 'toggle()' : 'open = !open' }}"
+        @keydown.arrow-down.prevent="openAndFocus(true)"
+        @keydown.arrow-up.prevent="openAndFocus(false)"
+        aria-haspopup="menu"
+        :aria-expanded="open"
+        aria-controls="dropdown-panel"
         class="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors flex items-center gap-2 text-sm font-medium"
     >
         @if($icon) <span class="text-base">{{ $icon }}</span> @endif
@@ -62,6 +88,13 @@
     <div
         x-show="open"
         x-ref="panel"
+        id="dropdown-panel"
+        role="menu"
+        aria-label="{{ $label }}"
+        @keydown.arrow-down.prevent="focusMenu('next')"
+        @keydown.arrow-up.prevent="focusMenu('prev')"
+        @keydown.home.prevent="focusMenu('first')"
+        @keydown.end.prevent="focusMenu('last')"
         @if($trigger === 'click')
             @click.outside="close()"
         @endif
