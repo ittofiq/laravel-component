@@ -12,7 +12,7 @@
     <meta name="twitter:description" content="101 production-ready Blade components untuk Laravel">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>">
     <title>@yield('title', 'BacaDev - Component Library')</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
 <body class="bg-gray-50 dark:bg-gray-900" x-data="darkMode()" x-init="init()" @keydown.window="handleShortcut($event)">
     {{-- Skip to content --}}
