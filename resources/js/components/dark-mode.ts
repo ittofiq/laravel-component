@@ -1,7 +1,19 @@
-export default function darkMode() {
+interface DarkModeState {
+    isDark: boolean;
+    _shortcutPrefix: string | null;
+    _shortcutTimer: number | null;
+    init(): void;
+    toggle(): void;
+    apply(): void;
+    handleShortcut(e: KeyboardEvent): void;
+}
+
+export default function darkMode(): DarkModeState {
     return {
         isDark: localStorage.getItem('theme') === 'dark' ||
             (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches),
+        _shortcutPrefix: null,
+        _shortcutTimer: null,
 
         init() {
             this.apply();
@@ -17,10 +29,11 @@ export default function darkMode() {
             localStorage.setItem('theme', this.isDark ? 'dark' : 'light');
         },
 
-        handleShortcut(e) {
+        handleShortcut(e: KeyboardEvent) {
             // Ignore if user is typing in an input/textarea/select
-            const tag = document.activeElement?.tagName?.toLowerCase();
-            if (tag === 'input' || tag === 'textarea' || tag === 'select' || document.activeElement?.isContentEditable) {
+            const activeEl = document.activeElement as HTMLElement | null;
+            const tag = activeEl?.tagName?.toLowerCase();
+            if (tag === 'input' || tag === 'textarea' || tag === 'select' || activeEl?.isContentEditable) {
                 return;
             }
 
@@ -38,26 +51,24 @@ export default function darkMode() {
             // ? — Show Shortcuts Help
             if (key === '?' && !mod) {
                 e.preventDefault();
-                this.$dispatch('open-shortcuts');
+                (this as unknown as { $dispatch: (event: string) => void }).$dispatch('open-shortcuts');
                 return;
             }
 
             // G + key — Go to page (two-key sequence)
             if (key === 'g' && !mod && !e.shiftKey) {
                 this._shortcutPrefix = 'g';
-                // Auto-clear prefix after 1.5s
-                clearTimeout(this._shortcutTimer);
-                const self = this;
-                this._shortcutTimer = setTimeout(() => { self._shortcutPrefix = null; }, 1500);
+                clearTimeout(this._shortcutTimer ?? undefined);
+                this._shortcutTimer = window.setTimeout(() => { this._shortcutPrefix = null; }, 1500);
                 return;
             }
 
             if (this._shortcutPrefix === 'g') {
                 e.preventDefault();
                 this._shortcutPrefix = null;
-                clearTimeout(this._shortcutTimer);
+                if (this._shortcutTimer) clearTimeout(this._shortcutTimer);
 
-                const routes = {
+                const routes: Record<string, string> = {
                     'h': '/',
                     'c': '/components',
                     'u': '/components/ui',

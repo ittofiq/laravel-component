@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
     plugins: [
         laravel({
-            input: ['resources/css/app.css', 'resources/js/app.js'],
+            input: ['resources/css/app.css', 'resources/js/app.ts'],
             refresh: true,
             fonts: [
                 bunny('Instrument Sans', {
@@ -25,9 +25,9 @@ export default defineConfig({
         chunkSizeWarningLimit: 1000,
         rollupOptions: {
             output: {
-                manualChunks: {
-                    alpine: ['alpinejs'],
-                    chart: ['chart.js'],
+                manualChunks(id) {
+                    if (id.includes('node_modules/alpinejs')) return 'alpine';
+                    if (id.includes('node_modules/chart.js')) return 'chart';
                 },
             },
         },

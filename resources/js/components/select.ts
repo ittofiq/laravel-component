@@ -1,4 +1,32 @@
-export default function selectComponent(uniqueId, allOptions, isDisabled) {
+interface OptionsMap {
+    [key: string]: string;
+}
+
+interface SelectState {
+    uniqueId: string;
+    allOptions: OptionsMap;
+    isDisabled: boolean;
+    selectedValue: string;
+    searchQuery: string;
+    filteredOptions: OptionsMap;
+    isOpen: boolean;
+    searchFocused: boolean;
+    highlightedIdx: number;
+    init(): void;
+    getDisplayText(): string;
+    selectOption(value: string): void;
+    clearSelection(): void;
+    filterOptions(): void;
+    highlightNext(): void;
+    highlightPrev(): void;
+    selectHighlighted(): void;
+}
+
+export default function selectComponent(
+    uniqueId: string,
+    allOptions: OptionsMap,
+    isDisabled: boolean
+): SelectState {
     return {
         uniqueId, allOptions, isDisabled,
         selectedValue: '',
@@ -12,7 +40,7 @@ export default function selectComponent(uniqueId, allOptions, isDisabled) {
 
         getDisplayText() { return this.allOptions[this.selectedValue] || 'Pilih opsi...'; },
 
-        selectOption(value) {
+        selectOption(value: string) {
             this.selectedValue = value; this.isOpen = false;
             this.searchQuery = ''; this.filteredOptions = { ...this.allOptions };
         },

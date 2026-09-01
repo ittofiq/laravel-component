@@ -1,8 +1,21 @@
 // Toast (Standalone) Component
-export function toastComponent(initialShow, duration) {
+interface ToastState {
+    visible: boolean;
+    duration: number;
+    progressPercent: number;
+    timerInterval: number | null;
+    remainingTime: number;
+    init(): void;
+    startAutoDismiss(): void;
+    pauseTimer(): void;
+    dismiss(): void;
+    show(): void;
+}
+
+export function toastComponent(initialShow: boolean, duration: number): ToastState {
     return {
         visible: initialShow,
-        duration: duration,
+        duration,
         progressPercent: 100,
         timerInterval: null,
         remainingTime: duration,
@@ -12,7 +25,7 @@ export function toastComponent(initialShow, duration) {
         startAutoDismiss() {
             const startTime = Date.now();
             const totalDuration = this.remainingTime;
-            this.timerInterval = setInterval(() => {
+            this.timerInterval = window.setInterval(() => {
                 const elapsed = Date.now() - startTime;
                 const remaining = totalDuration - elapsed;
                 if (remaining <= 0) { this.dismiss(); }
@@ -31,7 +44,40 @@ export function toastComponent(initialShow, duration) {
 }
 
 // Toast Container Component
-export function toastContainerComponent(initialPosition, maxToasts) {
+interface ToastItem {
+    id: number;
+    type: string;
+    title: string | null;
+    message: string;
+    duration: number;
+    visible: boolean;
+    progress: number;
+    timerInterval: number | null;
+}
+
+interface TypeConfig {
+    bg: string;
+    border: string;
+    text: string;
+    icon: string;
+    progress: string;
+}
+
+interface ToastContainerState {
+    toasts: ToastItem[];
+    counter: number;
+    currentPosition: string;
+    positionClasses: Record<string, string>;
+    typeConfig: Record<string, TypeConfig>;
+    getTypeClasses(type: string): string;
+    getIcon(type: string): string;
+    getProgressClass(type: string): string;
+    addToast(detail: ToastDetail): void;
+    startTimer(toast: ToastItem): void;
+    removeToast(id: number): void;
+}
+
+export function toastContainerComponent(initialPosition: string, maxToasts: number): ToastContainerState {
     return {
         toasts: [], counter: 0, currentPosition: initialPosition,
 
@@ -48,23 +94,29 @@ export function toastContainerComponent(initialPosition, maxToasts) {
             info: { bg: 'bg-blue-50 dark:bg-blue-900/30', border: 'border-blue-300 dark:border-blue-700', text: 'text-blue-800 dark:text-blue-200', icon: 'ℹ️', progress: 'bg-blue-500' },
         },
 
-        getTypeClasses(type) { const c = this.typeConfig[type] || this.typeConfig.info; return c.bg + ' ' + c.border + ' ' + c.text; },
-        getIcon(type) { return (this.typeConfig[type] || this.typeConfig.info).icon; },
-        getProgressClass(type) { return (this.typeConfig[type] || this.typeConfig.info).progress; },
+        getTypeClasses(type: string) { const c = this.typeConfig[type] || this.typeConfig.info; return c.bg + ' ' + c.border + ' ' + c.text; },
+        getIcon(type: string) { return (this.typeConfig[type] || this.typeConfig.info).icon; },
+        getProgressClass(type: string) { return (this.typeConfig[type] || this.typeConfig.info).progress; },
 
-        addToast(detail) {
+        addToast(detail: ToastDetail) {
             const id = ++this.counter;
             const duration = detail.duration || 5000;
-            const toast = { id, type: detail.type || 'info', title: detail.title || null, message: detail.message || '', duration, visible: true, progress: 100, timerInterval: null };
+            const toast: ToastItem = {
+                id, type: detail.type || 'info', title: detail.title || null,
+                message: detail.message || '', duration, visible: true, progress: 100, timerInterval: null,
+            };
             this.toasts.push(toast);
-            if (this.toasts.length > maxToasts) { const oldest = this.toasts.shift(); if (oldest && oldest.timerInterval) clearInterval(oldest.timerInterval); }
+            if (this.toasts.length > maxToasts) {
+                const oldest = this.toasts.shift();
+                if (oldest && oldest.timerInterval) clearInterval(oldest.timerInterval);
+            }
             if (duration > 0) this.startTimer(toast);
         },
 
-        startTimer(toast) {
+        startTimer(toast: ToastItem) {
             const startTime = Date.now();
             const totalDuration = toast.duration;
-            toast.timerInterval = setInterval(() => {
+            toast.timerInterval = window.setInterval(() => {
                 const elapsed = Date.now() - startTime;
                 const remaining = totalDuration - elapsed;
                 if (remaining <= 0) { this.removeToast(toast.id); }
@@ -72,7 +124,7 @@ export function toastContainerComponent(initialPosition, maxToasts) {
             }, 50);
         },
 
-        removeToast(id) {
+        removeToast(id: number) {
             const index = this.toasts.findIndex(t => t.id === id);
             if (index === -1) return;
             const toast = this.toasts[index];
@@ -84,6 +136,6 @@ export function toastContainerComponent(initialPosition, maxToasts) {
 }
 
 // Global toast dispatcher
-export function showToast(detail) {
+export function showToast(detail: ToastDetail): void {
     window.dispatchEvent(new CustomEvent('add-toast', { detail }));
 }

@@ -1,4 +1,36 @@
-export default function multiSelectComponent(uniqueId, allOptions, isDisabled, maxTags) {
+interface OptionsMap {
+    [key: string]: string;
+}
+
+interface MultiSelectState {
+    uniqueId: string;
+    allOptions: OptionsMap;
+    isDisabled: boolean;
+    maxTags: number;
+    selectedValues: string[];
+    searchQuery: string;
+    filteredOptions: OptionsMap;
+    isOpen: boolean;
+    highlightedIdx: number;
+    init(): void;
+    selectedValuesJson: string;
+    toggleTag(value: string): void;
+    removeTag(value: string): void;
+    clearAll(): void;
+    toggleSelectAll(): void;
+    filterOptions(): void;
+    selectFirstFiltered(): void;
+    highlightNext(): void;
+    highlightPrev(): void;
+    getOptionText(value: string): string;
+}
+
+export default function multiSelectComponent(
+    uniqueId: string,
+    allOptions: OptionsMap,
+    isDisabled: boolean,
+    maxTags: number
+): MultiSelectState {
     return {
         uniqueId,
         allOptions,
@@ -18,18 +50,18 @@ export default function multiSelectComponent(uniqueId, allOptions, isDisabled, m
             return JSON.stringify(this.selectedValues);
         },
 
-        set selectedValuesJson(val) {
-            try { this.selectedValues = JSON.parse(val) || []; } catch (e) { this.selectedValues = []; }
+        set selectedValuesJson(val: string) {
+            try { this.selectedValues = JSON.parse(val) || []; } catch { this.selectedValues = []; }
         },
 
-        toggleTag(value) {
+        toggleTag(value: string) {
             if (this.isDisabled) return;
             if (this.maxTags && this.selectedValues.length >= this.maxTags && !this.selectedValues.includes(value)) return;
             const index = this.selectedValues.indexOf(value);
             if (index > -1) { this.selectedValues.splice(index, 1); } else { this.selectedValues.push(value); }
         },
 
-        removeTag(value) {
+        removeTag(value: string) {
             if (this.isDisabled) return;
             const index = this.selectedValues.indexOf(value);
             if (index > -1) this.selectedValues.splice(index, 1);
@@ -75,7 +107,7 @@ export default function multiSelectComponent(uniqueId, allOptions, isDisabled, m
             this.highlightedIdx = Math.max(this.highlightedIdx - 1, -1);
         },
 
-        getOptionText(value) {
+        getOptionText(value: string) {
             return this.allOptions[value] || value;
         }
     };

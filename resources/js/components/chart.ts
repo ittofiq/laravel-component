@@ -1,29 +1,47 @@
-import { Chart, registerables } from 'chart.js';
+import { Chart, registerables, ChartType } from 'chart.js';
 
 // Register all Chart.js components
 Chart.register(...registerables);
 
-export default function chartComponent(config) {
+interface ChartConfig {
+    type?: ChartType;
+    labels?: string | string[];
+    datasets?: string | Array<Record<string, unknown>>;
+    options?: string | Record<string, unknown>;
+}
+
+interface ChartState extends AlpineMagicProperties {
+    chart: Chart | null;
+    config: ChartConfig;
+    init(): void;
+    destroy(): void;
+}
+
+export default function chartComponent(config: ChartConfig = {}): ChartState {
     return {
         chart: null,
-        config: config || {},
+        config,
+        $el: undefined as unknown as HTMLElement,
+        $refs: {},
+        $dispatch: () => {},
+        $nextTick: async () => {},
+        $watch: () => {},
+        $data: {},
 
         init() {
-            // Parse config from data attributes
-            const type = this.$el.dataset.chartType || this.config.type || 'bar';
-            const rawLabels = this.$el.dataset.chartLabels || this.config.labels || '[]';
-            const rawDatasets = this.$el.dataset.chartDatasets || this.config.datasets || '[]';
-            const rawOptions = this.$el.dataset.chartOptions || this.config.options || '{}';
+            const el = this.$el as HTMLElement;
+            const type = (el.dataset.chartType || this.config.type || 'bar') as ChartType;
+            const rawLabels = el.dataset.chartLabels || this.config.labels || '[]';
+            const rawDatasets = el.dataset.chartDatasets || this.config.datasets || '[]';
+            const rawOptions = el.dataset.chartOptions || this.config.options || '{}';
 
-            const labels = typeof rawLabels === 'string' ? JSON.parse(rawLabels) : rawLabels;
+            const labels: string[] = typeof rawLabels === 'string' ? JSON.parse(rawLabels) : rawLabels;
             const datasets = typeof rawDatasets === 'string' ? JSON.parse(rawDatasets) : rawDatasets;
-            let options = typeof rawOptions === 'string' ? JSON.parse(rawOptions) : rawOptions;
+            let options: Record<string, unknown> = typeof rawOptions === 'string' ? JSON.parse(rawOptions) : rawOptions;
 
-            // Check dark mode for theme-aware colors
             const isDark = document.documentElement.classList.contains('dark');
 
-            // Default options
-            const defaults = {
+            const defaults: Record<string, unknown> = {
                 responsive: true,
                 maintainAspectRatio: false,
                 animation: { duration: 1000, easing: 'easeInOutQuart' },
@@ -60,14 +78,13 @@ export default function chartComponent(config) {
                 } : {}
             };
 
-            // Merge options
             options = { ...defaults, ...options };
 
-            // Create chart
-            this.chart = new Chart(this.$refs.canvas, {
-                type: type,
-                data: { labels, datasets },
-                options: options
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            this.chart = new Chart(this.$refs.canvas as HTMLCanvasElement, {
+                type,
+                data: { labels, datasets: datasets as any },
+                options,
             });
         },
 
