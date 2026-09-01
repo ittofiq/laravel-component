@@ -1,7 +1,7 @@
 {{-- Shared Sidebar for Component Pages --}}
 @php
     $categories = [
-        'ui' => ['icon' => '🎨', 'label' => 'UI Components', 'count' => 23],
+        'ui' => ['icon' => '🎨', 'label' => 'UI Components', 'count' => 24],
         'form' => ['icon' => '📝', 'label' => 'Form Components', 'count' => 27],
         'data' => ['icon' => '📊', 'label' => 'Data Components', 'count' => 9],
         'navigation' => ['icon' => '🧭', 'label' => 'Navigation', 'count' => 9],
