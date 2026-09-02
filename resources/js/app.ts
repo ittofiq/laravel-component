@@ -580,6 +580,10 @@ window.codeSnippet = function(
 
 Alpine.plugin(collapse);
 
-Alpine.store('collapsed', false);
+Alpine.store('sidebar', { collapsed: localStorage.getItem('sidebarCollapsed') === 'true' });
+
+Alpine.effect(() => {
+    localStorage.setItem('sidebarCollapsed', Alpine.store('sidebar').collapsed ? 'true' : 'false');
+});
 
 Alpine.start();

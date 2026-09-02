@@ -2,8 +2,22 @@
 
 @section('title', 'Dashboard')
 
+@section('breadcrumb')
+<div class="mb-4">
+    <x-navigation.breadcrumb :items="[
+        ['label' => 'Home', 'href' => '/admin', 'icon' => '🏠'],
+        ['label' => 'Dashboard'],
+    ]" separator="chevron" />
+</div>
+@endsection
+
 @section('content')
 <div class="space-y-6">
+    <x-layout.page-header title="Dashboard" description="Ringkasan performa aplikasi Anda.">
+        <x-ui.button variant="primary" size="sm">Unduh Laporan</x-ui.button>
+        <x-ui.button variant="secondary" size="sm">Refresh</x-ui.button>
+    </x-layout.page-header>
+
     {{-- Stat cards --}}
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <x-data.stat-card label="Total Revenue" value="$12,430" icon="💰" trend="+12.5%" :trendUp="true" />
