@@ -292,13 +292,12 @@ Loader, Rating, Product Card, Shopping Cart, User Profile, Notification Badge, W
 - [x] Grid responsive seragam di semua halaman
 - [x] Dark mode konsisten di semua halaman
 - [x] TypeScript support — full conversion (strict mode, interfaces, type declarations)
-- [x] Accessibility audit (partial) — ARIA di 8 komponen interaktif (tabs, accordion, drawer, dll.)
+- [x] Accessibility audit — ARIA, focus trap, dan arrow-key navigation (tabs, dropdown, drawer, bottom sheet, confirm dialog, modal, dll.)
 - [x] Theme customization guide — THEMING.md (font, warna, dark mode, custom utility)
 
 ### Mendatang
 - [ ] Storybook integration
 - [ ] Visual regression testing
-- [ ] Accessibility audit (lanjutan) — focus trap, arrow-key navigation, skip-link menyeluruh
 
 ---
 
