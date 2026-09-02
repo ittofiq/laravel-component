@@ -580,4 +580,6 @@ window.codeSnippet = function(
 
 Alpine.plugin(collapse);
 
+Alpine.store('collapsed', false);
+
 Alpine.start();

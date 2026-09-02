@@ -4,7 +4,7 @@ declare module 'alpinejs' {
     interface Alpine {
         start(): void;
         data(name: string, callback: () => Record<string, unknown>): void;
-        store(name: string): unknown;
+        store(name: string, value?: unknown): unknown;
         plugin(callback: (...args: any[]) => void): this;
     }
 

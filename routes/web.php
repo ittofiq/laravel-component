@@ -40,6 +40,10 @@ Route::get('/explorer', function () {
     return view('pages.explorer');
 })->name('explorer');
 
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+})->name('admin.dashboard');
+
 Route::get('/custom-components', function () {
     if (app()->environment('production')) {
         abort(404);
