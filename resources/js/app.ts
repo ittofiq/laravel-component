@@ -1,4 +1,5 @@
 import Alpine from 'alpinejs';
+import collapse from '@alpinejs/collapse';
 import fileUploadComponent from './components/file-upload';
 import { toastComponent, toastContainerComponent, showToast } from './components/toast';
 import darkMode from './components/dark-mode';
@@ -576,5 +577,7 @@ window.codeSnippet = function(
         .join(' ');
     return `<x-${component}${attrStr ? ' ' + attrStr : ''}>${children}</x-${component}>`;
 };
+
+Alpine.plugin(collapse);
 
 Alpine.start();
