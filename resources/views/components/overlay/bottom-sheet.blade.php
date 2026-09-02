@@ -4,7 +4,7 @@
     'id' => 'bottomSheet',
 ])
 
-<div x-data="bottomSheet()" x-init="init()">
+<div x-data="bottomSheet('{{ $id }}')" x-init="init()">
     {{-- Overlay --}}
     <div
         x-show="isOpen"
@@ -55,14 +55,13 @@
 </div>
 
 <script>
-function bottomSheet() {
+function bottomSheet(sheetId) {
     return {
         isOpen: false,
+        sheetId,
         init() {
-            const el = this.$el;
-            const sheetId = el.closest('[id]')?.id || 'sheet';
-            window['openSheet_' + sheetId] = () => this.open();
-            window['closeSheet_' + sheetId] = () => this.close();
+            window['openSheet_' + this.sheetId] = () => this.open();
+            window['closeSheet_' + this.sheetId] = () => this.close();
             this.$watch('isOpen', (val) => {
                 if (val) {
                     this.$nextTick(() => {
