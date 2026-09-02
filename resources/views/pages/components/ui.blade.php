@@ -239,7 +239,7 @@
 
             {{-- Card --}}
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Avatar Group</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Avatar Group</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.avatar-group :avatars="[...]" :max="4" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="space-y-3">
                     <x-ui.avatar-group :avatars="[
                         ['initials' => 'JD'], ['initials' => 'AB'], ['initials' => 'CD'],
@@ -264,7 +264,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Notification Badge</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Notification Badge</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.notification-badge :count="3" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="flex gap-6 items-center">
                     <x-ui.notification-badge :count="3">
                         <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
@@ -295,7 +295,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Tree View</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Tree View</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.tree-view :items="[...]" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.tree-view :items="[
                     ['id' => '1', 'label' => 'src', 'children' => [
                         ['id' => '1.1', 'label' => 'components', 'children' => [
@@ -337,7 +337,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Card</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Card</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.card title="Title"&gt;Content&lt;/x-ui.card&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="space-y-4">
                     {{-- Card with image header --}}
                     <x-ui.card
@@ -449,7 +449,7 @@
 
             {{-- Tag --}}
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Tag</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Tag</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.tag variant="primary"&gt;Tag&lt;/x-ui.tag&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="flex flex-wrap gap-2">
                     <x-ui.tag variant="primary">Tag 1</x-ui.tag>
                     <x-ui.tag variant="secondary">Tag 2</x-ui.tag>
@@ -560,7 +560,7 @@
             </div>
 
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Cookie Consent</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Cookie Consent</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.cookie-consent position="bottom" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Banner muncul di bottom. Klik Terima/Tolak untuk menyimpan preferensi.</p>
                 <x-ui.cookie-consent position="bottom" />
 
@@ -583,7 +583,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Drag & Drop List</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Drag & Drop List</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.drag-drop-list :items="[...]" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.drag-drop-list :items="[
                     ['id' => '1', 'label' => 'First item', 'description' => 'Drag to reorder'],
                     ['id' => '2', 'label' => 'Second item', 'description' => 'Drop anywhere'],
@@ -607,7 +607,7 @@
             </div>
             {{-- Chip --}}
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Chip</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Chip</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.chip removable&gt;Chip&lt;/x-ui.chip&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="flex flex-wrap gap-2">
                     <x-ui.chip removable>Removable</x-ui.chip>
                     <x-ui.chip removable>Another</x-ui.chip>
@@ -638,7 +638,7 @@
             </div>
 
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Context Menu</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Context Menu</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.context-menu :items="[...]" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Right-click untuk membuka menu</p>
                 <x-ui.context-menu :items="[
                     ['label' => 'Edit', 'icon' => '✏️', 'shortcut' => '⌘E'],
@@ -666,7 +666,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Command Palette</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Command Palette</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.command-palette :items="[...]" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <p class="text-xs text-gray-500 dark:text-gray-400 mb-3">Tekan <kbd class="px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-700 text-xs font-mono">Cmd+K (Mac) / Ctrl+K (Windows)</kbd> untuk membuka</p>
                 <x-ui.command-palette :items="[
                     ['id' => '1', 'label' => 'Dashboard', 'icon' => '📊', 'description' => 'Go to dashboard', 'shortcut' => 'G D', 'color' => 'blue'],
@@ -692,7 +692,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Code Block</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Code Block</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.code-block code="..." filename="code.blade.php" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.code-block code="&lt;x-ui.button variant=&quot;primary&quot; size=&quot;md&quot;&gt;Click Me&lt;/x-ui.button&gt;" filename="button.blade.php" />
 
             {{-- Props API --}}
@@ -713,7 +713,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Scroll to Top</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Scroll to Top</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.scroll-to-top /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="flex items-center justify-center py-4">
                     <x-ui.scroll-to-top color="blue" />
                     <span class="text-sm text-gray-500 dark:text-gray-400 ml-4">Scroll ke bawah untuk melihat</span>
@@ -735,7 +735,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Countdown</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Countdown</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.countdown target="2026-12-31" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.countdown target="{{ now()->addDays(3)->addHours(5)->addMinutes(23)->format('Y-m-d H:i:s') }}" label="Launching in" size="md" />
 
             {{-- Props API --}}
@@ -759,7 +759,7 @@
             </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Lazy Image</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Lazy Image</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.lazy-image src="https://..." alt="Image" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <div class="grid grid-cols-2 gap-4">
                     <x-ui.lazy-image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%233B82F6' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24'%3EImage 1%3C/text%3E%3C/svg%3E" alt="Example" ratio="4/3" />
                     <x-ui.lazy-image src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%2310B981' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' fill='white' font-size='24'%3EImage 2%3C/text%3E%3C/svg%3E" alt="Square" ratio="1/1" />
@@ -784,7 +784,7 @@
             </div>
             {{-- Divider --}}
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
-                <h3 class="font-bold mb-4 text-gray-900 dark:text-white">Divider</h3>
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Divider</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.divider text="OR" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.divider />
                 <x-ui.divider text="OR" />
                 <x-ui.divider text="★" />
@@ -820,6 +820,7 @@
             @endphp
             {{-- Live Code Editor --}}
             <div class="lg:col-span-2">
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Live Code Editor</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.live-code-editor /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.live-code-editor label="Live Code Editor" :defaultCode="$liveEditorDefaultCode" height="380px" />
                 <p class="text-xs text-gray-500 dark:text-gray-400 mt-2 text-center">✏️ Edit kode di editor kiri — preview di kanan update real-time. Coba ganti variant, size, atau tambah komponen baru!</p>
 
@@ -841,6 +842,7 @@
 
             {{-- Mobile Preview --}}
             <div class="lg:col-span-2">
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Mobile Preview</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.mobile-preview&gt;...&lt;/x-ui.mobile-preview&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.mobile-preview label="Mobile Preview" device="iPhone 15 Pro" width="375px">
                     <div class="space-y-3">
                         <div class="flex gap-2">
@@ -883,6 +885,7 @@
 
             {{-- Image Compare --}}
             <div class="lg:col-span-2">
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Image Compare</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.image-compare before="..." after="..." /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.image-compare
                     label="Image Compare"
                     before="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450'%3E%3Crect fill='%233B82F6' width='800' height='450'/%3E%3Ctext x='50%25' y='45%25' text-anchor='middle' fill='white' font-size='48' font-weight='bold'%3EBEFORE%3C/text%3E%3Ctext x='50%25' y='60%25' text-anchor='middle' fill='white' font-size='18' opacity='0.8'%3EOriginal Photo%3C/text%3E%3C/svg%3E"
@@ -912,6 +915,7 @@
 
             {{-- Page Skeleton --}}
             <div class="lg:col-span-2">
+                <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Page Skeleton</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.page-skeleton layout="dashboard" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.page-skeleton :loading="true" layout="dashboard">
                     <div class="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
                         <div class="text-center">
