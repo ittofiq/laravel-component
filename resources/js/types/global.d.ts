@@ -72,10 +72,6 @@ interface AlpineMagicProperties {
 interface Window {
     Alpine: import('alpinejs').default;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    multiSelectComponent: (...args: any[]) => any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    selectComponent: (...args: any[]) => any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     fileUploadComponent: (...args: any[]) => any;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     toastComponent: (...args: any[]) => any;

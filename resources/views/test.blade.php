@@ -19,24 +19,24 @@
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-4">Test 1: Button Component</h2>
       <div class="p-6 bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
-        <x-button variant="primary">Test Button</x-button>
+        <x-ui.button variant="primary">Test Button</x-ui.button>
       </div>
     </section>
 
     <!-- Test 3: Simple Card Component -->
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-4">Test 2: Card Component</h2>
-      <x-card title="Test Card">
+      <x-ui.card title="Test Card">
         <p>Ini adalah test card component</p>
-      </x-card>
+      </x-ui.card>
     </section>
 
     <!-- Test 4: Input Component -->
     <section class="mb-12">
       <h2 class="text-2xl font-bold mb-4">Test 3: Input Component</h2>
-      <x-card>
-        <x-input name="test" label="Test Input" placeholder="Ketik sesuatu..." />
-      </x-card>
+      <x-ui.card>
+        <x-form.input name="test" label="Test Input" placeholder="Ketik sesuatu..." />
+      </x-ui.card>
     </section>
 
     <!-- Test 5: Tailwind Styling -->

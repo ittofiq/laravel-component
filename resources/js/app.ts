@@ -1,6 +1,4 @@
 import Alpine from 'alpinejs';
-import multiSelectComponent from './components/multi-select';
-import selectComponent from './components/select';
 import fileUploadComponent from './components/file-upload';
 import { toastComponent, toastContainerComponent, showToast } from './components/toast';
 import darkMode from './components/dark-mode';
@@ -143,8 +141,6 @@ interface CalendarState {
 // Register all component functions globally for Alpine x-data
 // ============================================================
 
-window.multiSelectComponent = multiSelectComponent;
-window.selectComponent = selectComponent;
 window.fileUploadComponent = fileUploadComponent;
 window.toastComponent = toastComponent;
 window.toastContainerComponent = toastContainerComponent;
