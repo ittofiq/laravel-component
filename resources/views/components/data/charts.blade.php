@@ -10,7 +10,6 @@
 
 <div
     x-data="chartComponent()"
-    x-init="init()"
     data-chart-type="{{ $type }}"
     data-chart-labels="{{ $labels }}"
     data-chart-datasets="{{ $datasets }}"

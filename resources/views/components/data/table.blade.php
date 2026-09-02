@@ -212,10 +212,10 @@
 <script>
 (function() {
     var state = {};
-    var rows = {{ $rowsJson }};
-    var keys = {{ $headerKeysJs }};
-    var labels = {{ $headerLabelsJs }};
-    var headers = {{ $headersJson }};
+    var rows = {!! $rowsJson !!};
+    var keys = {!! $headerKeysJs !!};
+    var labels = {!! $headerLabelsJs !!};
+    var headers = {!! $headersJson !!};
     var id = '{{ $tableId }}';
     var badgeColors = { 'Active': 'green', 'Inactive': 'gray', 'Pending': 'yellow', 'Admin': 'purple', 'Editor': 'blue', 'Viewer': 'orange', 'Done': 'green', 'Draft': 'gray', 'High': 'red', 'Medium': 'yellow', 'Low': 'green' };
     var badgeStyles = { green: { bg: '#dcfce7', text: '#166534' }, gray: { bg: '#f3f4f6', text: '#374151' }, yellow: { bg: '#fef9c3', text: '#854d0e' }, purple: { bg: '#f3e8ff', text: '#6b21a8' }, blue: { bg: '#dbeafe', text: '#1e40af' }, orange: { bg: '#ffedd5', text: '#9a3412' }, red: { bg: '#fee2e2', text: '#991b1b' } };

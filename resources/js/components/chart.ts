@@ -29,6 +29,9 @@ export default function chartComponent(config: ChartConfig = {}): ChartState {
         $data: {},
 
         init() {
+            // Guard against re-init: destroy any existing chart before recreating
+            this.destroy();
+
             const el = this.$el as HTMLElement;
             const type = (el.dataset.chartType || this.config.type || 'bar') as ChartType;
             const rawLabels = el.dataset.chartLabels || this.config.labels || '[]';

@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- Terapkan tema sebelum CSS load, mencegah flash tema yang salah --}}
+    <script>
+        (function () {
+            var t = localStorage.getItem('theme');
+            if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+    </script>
     <meta name="description" content="BacaDev - Production-ready Tailwind CSS Component Library untuk Laravel dengan 101 Blade components">
     <meta property="og:title" content="BacaDev Component Library">
     <meta property="og:description" content="101 production-ready Blade components dengan Tailwind CSS 4, Alpine.js, dan dark mode.">
@@ -14,7 +23,7 @@
     <title>@yield('title', 'BacaDev - Component Library')</title>
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
-<body class="bg-gray-50 dark:bg-gray-900" x-data="darkMode()" x-init="init()" @keydown.window="handleShortcut($event)">
+<body class="bg-gray-50 dark:bg-gray-900" x-data="darkMode()" @keydown.window="handleShortcut($event)">
     {{-- Skip to content --}}
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-white dark:focus:bg-gray-800 focus:border focus:border-blue-500 focus:rounded-lg focus:shadow-lg focus:text-blue-700 dark:focus:text-blue-300 focus:outline-none">
         Skip to content

@@ -4,7 +4,7 @@
     'id' => 'bottomSheet',
 ])
 
-<div x-data="bottomSheet('{{ $id }}')" x-init="init()">
+<div x-data="bottomSheet('{{ $id }}')">
     {{-- Overlay --}}
     <div
         x-show="isOpen"
