@@ -75,7 +75,7 @@
                                     'opacity-50 cursor-not-allowed': disabled
                                 }" :disabled="disabled">Playground Button</button>
                             </div>
-                            <p class="text-xs text-gray-400 dark:text-gray-500 font-mono" x-text="codeSnippet('ui.button', variant, size, disabled)"></p>
+                            <p class="text-xs text-gray-400 dark:text-gray-500 font-mono" x-text="codeSnippet('ui.button', { variant, size, disabled }, 'Click Me')"></p>
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                                     'px-4 py-2 text-base': size === 'lg'
                                 }">Playground Badge</span>
                             </div>
-                            <p class="text-xs text-gray-400 dark:text-gray-500 font-mono" x-text="codeSnippet('ui.badge', variant, size)"></p>
+                            <p class="text-xs text-gray-400 dark:text-gray-500 font-mono" x-text="codeSnippet('ui.badge', { variant, size }, 'Badge')"></p>
                         </div>
                     </div>
                 </div>
@@ -950,20 +950,6 @@ window.copyShareLink = function(e) {
         var original = btn.innerHTML;
         btn.innerHTML = '✅';
         setTimeout(function() { btn.innerHTML = original; }, 1500);
-    });
-};
-window.codeSnippet = function(component, variant, size, disabled) {
-    let attrs = `variant="${variant}" size="${size}"`;
-    if (disabled) attrs += ' disabled';
-    return `<x-${component} ${attrs}>Click Me</x-${component}>`;
-};
-window.copyCode = function(btn) {
-    const code = btn.getAttribute('data-code');
-    navigator.clipboard.writeText(code).then(() => {
-        const original = btn.innerHTML;
-        btn.innerHTML = '✅ Copied!';
-        btn.classList.add('bg-green-500', 'text-white');
-        setTimeout(() => { btn.innerHTML = original; btn.classList.remove('bg-green-500', 'text-white'); }, 1500);
     });
 };
 </script>

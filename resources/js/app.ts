@@ -564,4 +564,17 @@ window.copyCode = function(btn: HTMLElement): void {
     });
 };
 
+// Global code snippet generator (for component explorers/playgrounds)
+window.codeSnippet = function(
+    component: string,
+    attrs: Record<string, string | number | boolean>,
+    children = '...'
+): string {
+    const attrStr = Object.entries(attrs)
+        .filter(([, v]) => v !== false && v !== '' && v !== null && v !== undefined)
+        .map(([k, v]) => (v === true ? k : `${k}="${v}"`))
+        .join(' ');
+    return `<x-${component}${attrStr ? ' ' + attrStr : ''}>${children}</x-${component}>`;
+};
+
 Alpine.start();

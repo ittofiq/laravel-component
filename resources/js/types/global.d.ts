@@ -106,4 +106,5 @@ interface Window {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     calendarComponent: (year: number, month: number) => any;
     copyCode: (btn: HTMLElement) => void;
+    codeSnippet: (component: string, attrs: Record<string, string | number | boolean>, children?: string) => string;
 }

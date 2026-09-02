@@ -36,6 +36,10 @@ Route::get('/components/{category}', function (string $category) {
     return view("pages.components.{$category}");
 })->name('components.category');
 
+Route::get('/explorer', function () {
+    return view('pages.explorer');
+})->name('explorer');
+
 Route::get('/custom-components', function () {
     if (app()->environment('production')) {
         abort(404);
