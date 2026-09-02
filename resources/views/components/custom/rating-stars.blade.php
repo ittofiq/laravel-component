@@ -11,7 +11,7 @@
 @endphp
 
 <div
-  class="flex gap-1 items-center"
+  {{ $attributes->merge(['class' => 'flex gap-1 items-center']) }}
   @if($interactive)
     x-data="{ hoverRating: 0, rating: {{ $rating }} }"
   @endif
@@ -24,10 +24,8 @@
         @mouseenter="hoverRating = {{ $i }}"
         @mouseleave="hoverRating = 0"
         :class="hoverRating > 0 ? (hoverRating >= {{ $i }} ? 'text-yellow-400' : 'text-gray-300') : (rating >= {{ $i }} ? 'text-yellow-400' : 'text-gray-300')"
-      @else
-        :class="rating >= {{ $i }} ? 'text-yellow-400' : 'text-gray-300'"
       @endif
-      class="transition-colors {{ $sizeClass }} focus:outline-none hover:scale-110 transform"
+      class="transition-colors {{ $sizeClass }} focus:outline-none hover:scale-110 transform {{ $interactive ? '' : ($rating >= $i ? 'text-yellow-400' : 'text-gray-300') }}"
       type="button"
     >
       <svg fill="currentColor" viewBox="0 0 20 20">

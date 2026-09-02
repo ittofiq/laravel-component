@@ -16,9 +16,11 @@
                 </div>
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow"><h3 class="font-bold mb-4 text-gray-900 dark:text-white">Rating Stars</h3>
-                <x-custom.rating-stars :value="4" :max="5" />
-                <x-custom.rating-stars :value="3.5" :max="5" class="mt-2" />
-                <x-custom.rating-stars :value="5" :max="5" class="mt-2" />
+                <x-custom.rating-stars :rating="4" :max-stars="5" />
+                <x-custom.rating-stars :rating="3.5" :max-stars="5" class="mt-2" />
+                <x-custom.rating-stars :rating="5" :max-stars="5" class="mt-2" />
+                <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 font-medium">Interactive — klik bintang untuk memilih:</p>
+                <x-custom.rating-stars interactive class="mt-2" />
             </div>
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow"><h3 class="font-bold mb-4 text-gray-900 dark:text-white">Shopping Cart</h3>
                 <x-custom.shopping-cart :items="[
