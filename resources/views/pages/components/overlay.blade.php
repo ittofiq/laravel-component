@@ -171,16 +171,16 @@
                     <button onclick="openSheet_sheet()" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Open Sheet</button>
                 <x-overlay.bottom-sheet id="sheet" title="Share Options">
                         <div class="space-y-2">
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm">
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-700 dark:text-gray-300">
                                 <span class="text-xl">📋</span> <span>Copy Link</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm">
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-700 dark:text-gray-300">
                                 <span class="text-xl">🐦</span> <span>Share to Twitter</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm">
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-700 dark:text-gray-300">
                                 <span class="text-xl">📧</span> <span>Share via Email</span>
                             </a>
-                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm">
+                            <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition text-sm text-gray-700 dark:text-gray-300">
                                 <span class="text-xl">💬</span> <span>Share to WhatsApp</span>
                             </a>
                             <button onclick="closeSheet_sheet()" class="w-full px-4 py-3 text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition mt-2">Cancel</button>
