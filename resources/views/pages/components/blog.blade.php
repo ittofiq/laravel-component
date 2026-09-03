@@ -5,6 +5,8 @@
 @section('content')
 @php
     $img = 'data:image/svg+xml,'.rawurlencode('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect fill="#3B82F6" width="800" height="450"/><text x="50%" y="50%" text-anchor="middle" fill="white" font-size="28" font-weight="bold">Artikel</text></svg>');
+    $img2 = 'data:image/svg+xml,'.rawurlencode('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect fill="#10B981" width="800" height="450"/><text x="50%" y="50%" text-anchor="middle" fill="white" font-size="28" font-weight="bold">Artikel 2</text></svg>');
+    $img3 = 'data:image/svg+xml,'.rawurlencode('<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect fill="#8B5CF6" width="800" height="450"/><text x="50%" y="50%" text-anchor="middle" fill="white" font-size="28" font-weight="bold">Artikel 3</text></svg>');
 @endphp
 
 <div class="flex min-h-screen">
@@ -186,8 +188,8 @@
                 ['name' => 'posts', 'type' => 'array', 'default' => '[]', 'description' => 'Array untuk article-card'],
             ]">
                 <x-blog.related-posts :posts="[
-                    ['title' => '5 Tren Desain UI 2026', 'excerpt' => 'Dari glassmorphism sampai dark mode.', 'category' => 'UI/UX', 'categoryColor' => 'green', 'author' => 'Budi Santoso', 'date' => '10 Agustus 2026', 'readTime' => 4],
-                    ['title' => 'Optimasi Performa Laravel', 'excerpt' => 'Evaluasi ringkas untuk loading lebih cepat.', 'category' => 'Tips & Trik', 'categoryColor' => 'purple', 'author' => 'Citra Lestari', 'date' => '8 Agustus 2026', 'readTime' => 3],
+                    ['title' => '5 Tren Desain UI 2026', 'excerpt' => 'Dari glassmorphism sampai dark mode.', 'image' => $img2, 'category' => 'UI/UX', 'categoryColor' => 'green', 'author' => 'Budi Santoso', 'date' => '10 Agustus 2026', 'readTime' => 4],
+                    ['title' => 'Optimasi Performa Laravel', 'excerpt' => 'Evaluasi ringkas untuk loading lebih cepat.', 'image' => $img3, 'category' => 'Tips & Trik', 'categoryColor' => 'purple', 'author' => 'Citra Lestari', 'date' => '8 Agustus 2026', 'readTime' => 3],
                 ]" />
             </x-ui.demo-card>
 
