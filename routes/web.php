@@ -56,6 +56,18 @@ Route::get('/admin/orders', function () {
     return view('admin.orders');
 })->name('admin.orders');
 
+Route::get('/admin/settings', function () {
+    return view('admin.settings');
+})->name('admin.settings');
+
+Route::get('/admin/analytics/reports', function () {
+    return view('admin.reports');
+})->name('admin.analytics.reports');
+
+Route::get('/admin/analytics/realtime', function () {
+    return view('admin.realtime');
+})->name('admin.analytics.realtime');
+
 Route::get('/custom-components', function () {
     if (app()->environment('production')) {
         abort(404);

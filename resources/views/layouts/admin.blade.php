@@ -27,10 +27,10 @@
         ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'route' => 'admin.orders', 'href' => route('admin.orders')],
         ['header' => 'Lainnya'],
         ['id' => 'analytics', 'label' => 'Analytics', 'icon' => '📈', 'children' => [
-            ['id' => 'reports', 'label' => 'Reports', 'icon' => '📄', 'route' => 'admin.analytics.reports', 'href' => '#'],
-            ['id' => 'realtime', 'label' => 'Real-time', 'icon' => '⏱️', 'route' => 'admin.analytics.realtime', 'href' => '#'],
+            ['id' => 'reports', 'label' => 'Reports', 'icon' => '📄', 'route' => 'admin.analytics.reports', 'href' => route('admin.analytics.reports')],
+            ['id' => 'realtime', 'label' => 'Real-time', 'icon' => '⏱️', 'route' => 'admin.analytics.realtime', 'href' => route('admin.analytics.realtime')],
         ]],
-        ['id' => 'settings', 'label' => 'Settings', 'icon' => '⚙️', 'route' => 'admin.settings', 'href' => '#'],
+        ['id' => 'settings', 'label' => 'Settings', 'icon' => '⚙️', 'route' => 'admin.settings', 'href' => route('admin.settings')],
     ];
 
     // Auto-detect item aktif dari nama route saat ini
@@ -70,10 +70,14 @@
                         $hasChildren = isset($item['children']) && count($item['children']) > 0;
                         $itemId = $item['id'];
                         $isActive = $active === $itemId;
+                        $childIsActive = false;
+                        foreach ($item['children'] ?? [] as $child) {
+                            if ($active === ($child['id'] ?? null)) $childIsActive = true;
+                        }
                     @endphp
 
                     @if($hasChildren)
-                    <div x-data="{ subOpen: {{ $isActive ? 'true' : 'false' }} }">
+                    <div x-data="{ subOpen: {{ ($isActive || $childIsActive) ? 'true' : 'false' }} }">
                         <button @click="subOpen = !subOpen"
                             class="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-colors text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
                             :class="$store.sidebar.collapsed ? 'justify-center' : ''">
@@ -204,7 +208,9 @@
             ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'description' => 'Kelola pengguna', 'href' => route('admin.users'), 'color' => 'green', 'shortcut' => 'U'],
             ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'description' => 'Kelola produk', 'href' => route('admin.products'), 'color' => 'purple', 'shortcut' => 'P'],
             ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'description' => 'Kelola pesanan', 'href' => route('admin.orders'), 'color' => 'orange', 'shortcut' => 'O'],
-            ['id' => 'settings', 'label' => 'Settings', 'icon' => '⚙️', 'description' => 'Pengaturan aplikasi', 'href' => '#', 'color' => 'gray', 'shortcut' => 'S'],
+            ['id' => 'reports', 'label' => 'Reports', 'icon' => '📄', 'description' => 'Laporan performa', 'href' => route('admin.analytics.reports'), 'color' => 'blue', 'shortcut' => 'R'],
+            ['id' => 'realtime', 'label' => 'Real-time', 'icon' => '⏱️', 'description' => 'Aktivitas langsung', 'href' => route('admin.analytics.realtime'), 'color' => 'red', 'shortcut' => 'T'],
+            ['id' => 'settings', 'label' => 'Settings', 'icon' => '⚙️', 'description' => 'Pengaturan aplikasi', 'href' => route('admin.settings'), 'color' => 'gray', 'shortcut' => 'S'],
         ]"
     />
 </div>
