@@ -154,6 +154,23 @@ Dark mode BacaDev adalah **class-based**. Implementasinya ada di `app.css`:
 
 Artinya: utility `dark:` aktif selama elemen `<html>` punya class `.dark`. Toggle-nya di-handle komponen `darkMode` ([resources/js/components/dark-mode.ts](resources/js/components/dark-mode.ts)).
 
+### Mencegah Flash Tema (Anti-FOUC)
+
+Supaya tidak ada flash tema salah (light muncul sesaat sebelum dark), kedua layout (`layouts/app.blade.php` dan `layouts/admin.blade.php`) punya script inline di `<head>` yang menaruh class `.dark` ke `<html>` **sebelum CSS diproses**:
+
+```html
+<script>
+    (function () {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    })();
+</script>
+```
+
+Script ini membaca preferensi yang sama dengan `darkMode`, jadi toggle dan load awal selalu konsisten.
+
 ### Mengubah Warna Dark Mode
 
 Semua warna dark mode di komponen memakai prefix `dark:`, contoh `bg-gray-800 dark:bg-gray-900`. Untuk kustomisasi, override token yang relevan:

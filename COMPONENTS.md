@@ -1,5 +1,16 @@
 # 📋 Component List & Usage Guide
 
+> ✨ **Admin Template** — lihat `http://localhost:8000/admin` untuk contoh penggunaan komponen dalam template admin siap pakai (Dashboard, Users, Products, Orders, Settings, Analytics). Layout shell di `resources/views/layouts/admin.blade.php`.
+
+## Helper Components (untuk dokumentasi/demo/template)
+
+- `x-layout.page-header` — header halaman (judul + deskripsi + slot aksi)
+- `x-ui.demo-card` — card demo seragam (judul + tombol copy + Props API)
+- `x-ui.playground` — playground interaktif (controls + live preview + code snippet)
+- `x-ui.props-table` — tabel Props API (name/type/default/description)
+
+---
+
 ## 🎨 UI Components (24)
 
 ### 1. Button

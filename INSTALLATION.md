@@ -84,6 +84,8 @@ Setelah kedua server berjalan, buka browser:
 - **Homepage**: http://localhost:8000
 - **Component Showcase**: http://localhost:8000/components
 - **Demo Hub**: http://localhost:8000/demo
+- **Admin Template**: http://localhost:8000/admin
+- **Component Explorer**: http://localhost:8000/explorer
 
 ---
 
@@ -145,7 +147,7 @@ export default defineConfig({
   plugins: [
     laravel([
       'resources/css/app.css',
-      'resources/js/app.js',
+      'resources/js/app.ts',
     ]),
   ],
 })
@@ -231,12 +233,14 @@ bacadev/
 ├── resources/
 │   ├── views/
 │   │   ├── components/         # 101 Blade components
-│   │   ├── layouts/
+│   │   ├── layouts/            # Base layouts (app + admin)
+│   │   ├── admin/              # Admin template pages
 │   │   └── pages/              # Demo pages
 │   ├── css/
 │   │   └── app.css            # Main Tailwind CSS
 │   └── js/
-│       └── app.js             # Alpine.js
+│       ├── app.ts             # Alpine.js entry (TypeScript)
+│       └── components/        # JS/TS module components
 ├── routes/
 │   └── web.php                # Web routes
 ├── public/                     # Static assets

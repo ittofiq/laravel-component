@@ -4,6 +4,37 @@ Semua perubahan penting di BacaDev Component Library dicatat di file ini.
 
 ---
 
+## [5.3] - September 2026
+
+### ✨ Admin Template
+
+- **Admin Layout Shell** — `layouts/admin.blade.php`: sidebar (collapsible, section header, auto-active dari route, auto-expand submenu), topbar (search ⌘K, notifikasi dropdown, dark toggle, user dropdown), page header, breadcrumb, command palette, mobile menu
+- **6 Halaman Admin** — Dashboard, Users, Products, Orders, Settings, Analytics (Reports + Real-time)
+- **Client-side CRUD** — tabel Users/Products dengan modal create in-memory (tanpa backend)
+- **Shortcut Keyboard** — Ctrl+B toggle sidebar, Cmd+K/Ctrl+K command palette
+
+### ✨ Component Explorer & Dokumentasi
+
+- **Component Explorer** — halaman `/explorer` dengan playground interaktif (controls + live preview + code snippet + copy)
+- **Copy + Props API konsisten** — semua card demo memakai `x-ui.demo-card`
+- **x-layout.page-header** — komponen reusable judul + deskripsi + aksi halaman
+
+### 🐛 Perbaikan
+
+- Chart double-init ("Canvas is already in use")
+- Table JSON escaping (syntax error di `<script>` tag)
+- Dark mode flash (script apply tema sebelum CSS paint)
+- Bottom sheet id tidak ter-register
+- Rating stars non-interactive rendering
+- Alpine Collapse plugin belum terpasang
+
+### 🧹 Lainnya
+
+- Standardisasi copy code snippet global (`codeSnippet`)
+- Trim contoh demo yang redundan (varian tabel ganda, form layout, HTML layout besar)
+
+---
+
 ## [5.2] - Juli 2026
 
 ### ✨ 3 Komponen Baru
@@ -262,7 +293,8 @@ Loader, Rating, Product Card, Shopping Cart, User Profile, Notification Badge, W
 
 | Versi | Komponen | Fitur Baru | Status |
 |-------|----------|------------|--------|
-| 5.2 | 101 | 3 baru + 15 enhanced + demo | ✅ Current |
+| 5.3 | 101 | Admin template + explorer + copy/props API | ✅ Current |
+| 5.2 | 101 | 3 baru + 15 enhanced + demo | ✅ Stable |
 | 5.1 | 98 | 6 baru + 5 enhanced | ✅ Stable |
 | 5.0 | 95 | 23 baru + 15 enhanced | ✅ Stable |
 | 4.0 | 72 | 6 sophisticated | ✅ Stable |
@@ -295,6 +327,8 @@ Loader, Rating, Product Card, Shopping Cart, User Profile, Notification Badge, W
 - [x] Accessibility audit — ARIA, focus trap, dan arrow-key navigation (tabs, dropdown, drawer, bottom sheet, confirm dialog, modal, dll.)
 - [x] Theme customization guide — THEMING.md (font, warna, dark mode, custom utility)
 - [x] Component explorer (native) — halaman /explorer + komponen x-ui.playground interaktif
+- [x] Admin template — layout shell + 6 halaman admin (Dashboard, Users, Products, Orders, Settings, Analytics)
+- [x] Copy + Props API standardized — x-ui.demo-card di semua card demo
 
 ### Mendatang
 - [ ] Visual regression testing
@@ -311,4 +345,4 @@ Dibuat dengan ❤️ menggunakan:
 
 ---
 
-**Terakhir Diperbarui**: 31 Juli 2026
+**Terakhir Diperbarui**: 3 September 2026

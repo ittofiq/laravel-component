@@ -98,7 +98,8 @@ BacaDev Component Library Documentation
 │
 └── 📁 resources/views/
     ├── components/           # 101 Blade components
-    ├── layouts/              # Base layouts
+    ├── layouts/              # Base layouts (app + admin)
+    ├── admin/                # Admin template pages (Dashboard, Users, dsb.)
     └── pages/                # Demo pages
 ```
 
@@ -113,17 +114,14 @@ BacaDev Component Library Documentation
 
 ---
 
-## 🆕 What's New in v5.2
+## 🆕 What's New in v5.3
 
-**3 Komponen Baru + Halaman Demo Enhanced:**
-- Mobile Preview — Device mockup (iPhone 15 Pro) untuk preview komponen di ukuran mobile 375px
-- Image Compare — Before/after slider comparison dengan drag handle interaktif
-- Page Skeleton — Full page skeleton loading dengan 3 layout: dashboard, blog, list
-
-**Peningkatan:**
-- 15+ komponen ditingkatkan (Table, Card, Modal, Tabs, Dropdown, Navbar, Tooltip, Alert, Breadcrumb, Pagination, Avatar, Sidebar, Mobile Menu, Charts, Keyboard Shortcuts)
-- Enhanced demo pages (UI, Form, Layout pages)
-- 24 komponen UI tertampil lengkap di halaman demo
+**Admin Template + Component Explorer:**
+- Admin Layout Shell — sidebar (collapsible + section header + auto-active) + topbar (search ⌘K, notifikasi, dark mode, user dropdown) + command palette
+- 6 Halaman Admin — Dashboard, Users, Products, Orders, Settings, Analytics (Reports + Real-time)
+- Component Explorer — halaman /explorer dengan playground interaktif
+- Copy + Props API konsisten di semua card demo (x-ui.demo-card)
+- Berbagai bug fixes (chart double-init, dark mode flash, table JSON, dsb.)
 
 → See more in [CHANGELOG.md](CHANGELOG.md)
 

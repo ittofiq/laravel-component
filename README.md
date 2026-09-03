@@ -2,7 +2,7 @@
 
 **Production-ready Tailwind CSS Component Library untuk Laravel**
 
-![Version](https://img.shields.io/badge/version-5.2-blue.svg)
+![Version](https://img.shields.io/badge/version-5.3-blue.svg)
 ![Components](https://img.shields.io/badge/components-101-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
@@ -26,6 +26,8 @@ BacaDev adalah component library dengan **101 production-ready komponen** yang d
 ✅ **Easy to Use** - Simple Blade syntax: `<x-component-name />`  
 ✅ **Keyboard Shortcuts** - Navigasi global (G + key) + panduan (?)  
 ✅ **Chart.js** - Visualisasi data interaktif (bar, line, doughnut, radar)  
+✅ **Admin Template** - 6 halaman admin siap pakai (Dashboard, Users, Products, Orders, Settings, Analytics)  
+✅ **Component Explorer** - Playground interaktif di /explorer  
 
 ---
 
@@ -66,6 +68,8 @@ Akses: http://localhost:8000
 - **Full Showcase**: http://localhost:8000/components
 - **Demo Hub**: http://localhost:8000/demo
 - **Home Page**: http://localhost:8000
+- **Admin Template**: http://localhost:8000/admin
+- **Component Explorer**: http://localhost:8000/explorer
 
 ---
 
