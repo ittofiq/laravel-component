@@ -20,6 +20,7 @@
                 'feedback' => ['icon' => '🔔', 'label' => 'Feedback', 'count' => 6, 'desc' => 'Alert, Toast, Toast Container, Spinner, Skeleton, Empty State', 'color' => 'red'],
                 'layout' => ['icon' => '🏗️', 'label' => 'Layout', 'count' => 11, 'desc' => 'Hero, Section, Container, Grid, Footer, FAQ, Gallery, Accordion, Carousel, Masonry Grid, Waterfall Layout', 'color' => 'indigo'],
                 'custom' => ['icon' => '🎁', 'label' => 'Custom', 'count' => 8, 'desc' => 'Loader, Rating Stars, Shopping Cart, User Profile, Permission System, Pricing Card, Protected Button, 2FA Auth', 'color' => 'yellow'],
+                'blog' => ['icon' => '📰', 'label' => 'Blog', 'count' => 12, 'desc' => 'Article Card, Article Meta, Comment, Post, Author Card, Related Posts, Sidebar, Widget, Category List, Popular Posts, Tag Cloud, Newsletter', 'color' => 'cyan'],
             ];
 
             $colorClasses = [
@@ -31,6 +32,7 @@
                 'red' => ['border' => 'hover:border-red-400 dark:hover:border-red-500', 'text' => 'group-hover:text-red-600 dark:group-hover:text-red-400', 'badge' => 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300', 'chevron' => 'group-hover:text-red-400'],
                 'indigo' => ['border' => 'hover:border-indigo-400 dark:hover:border-indigo-500', 'text' => 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400', 'badge' => 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300', 'chevron' => 'group-hover:text-indigo-400'],
                 'yellow' => ['border' => 'hover:border-yellow-400 dark:hover:border-yellow-500', 'text' => 'group-hover:text-yellow-600 dark:group-hover:text-yellow-400', 'badge' => 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300', 'chevron' => 'group-hover:text-yellow-400'],
+                'cyan' => ['border' => 'hover:border-cyan-400 dark:hover:border-cyan-500', 'text' => 'group-hover:text-cyan-600 dark:group-hover:text-cyan-400', 'badge' => 'bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300', 'chevron' => 'group-hover:text-cyan-400'],
             ];
         @endphp
 

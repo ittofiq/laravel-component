@@ -29,7 +29,7 @@ Route::get('/components', function () {
 })->name('components');
 
 Route::get('/components/{category}', function (string $category) {
-    $categories = ['ui', 'form', 'data', 'navigation', 'overlay', 'feedback', 'layout', 'custom'];
+    $categories = ['ui', 'form', 'data', 'navigation', 'overlay', 'feedback', 'layout', 'custom', 'blog'];
     if (!in_array($category, $categories)) {
         abort(404);
     }

@@ -9,6 +9,7 @@
         'feedback' => ['icon' => '🔔', 'label' => 'Feedback', 'count' => 6],
         'layout' => ['icon' => '🏗️', 'label' => 'Layout', 'count' => 11],
         'custom' => ['icon' => '🎁', 'label' => 'Custom', 'count' => 8],
+        'blog' => ['icon' => '📰', 'label' => 'Blog', 'count' => 12],
     ];
     $current = $currentCategory ?? null;
 @endphp
