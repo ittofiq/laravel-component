@@ -21,6 +21,7 @@
                 'layout' => ['icon' => '🏗️', 'label' => 'Layout', 'count' => 11, 'desc' => 'Hero, Section, Container, Grid, Footer, FAQ, Gallery, Accordion, Carousel, Masonry Grid, Waterfall Layout', 'color' => 'indigo'],
                 'custom' => ['icon' => '🎁', 'label' => 'Custom', 'count' => 8, 'desc' => 'Loader, Rating Stars, Shopping Cart, User Profile, Permission System, Pricing Card, Protected Button, 2FA Auth', 'color' => 'yellow'],
                 'blog' => ['icon' => '📰', 'label' => 'Blog', 'count' => 12, 'desc' => 'Article Card, Article Meta, Comment, Post, Author Card, Related Posts, Sidebar, Widget, Category List, Popular Posts, Tag Cloud, Newsletter', 'color' => 'cyan'],
+                'auth' => ['icon' => '🔐', 'label' => 'Auth', 'count' => 4, 'desc' => 'Login Card, Register Card, Reset Password Card, Change Password Card', 'color' => 'teal'],
             ];
 
             $colorClasses = [
@@ -33,6 +34,7 @@
                 'indigo' => ['border' => 'hover:border-indigo-400 dark:hover:border-indigo-500', 'text' => 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400', 'badge' => 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300', 'chevron' => 'group-hover:text-indigo-400'],
                 'yellow' => ['border' => 'hover:border-yellow-400 dark:hover:border-yellow-500', 'text' => 'group-hover:text-yellow-600 dark:group-hover:text-yellow-400', 'badge' => 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300', 'chevron' => 'group-hover:text-yellow-400'],
                 'cyan' => ['border' => 'hover:border-cyan-400 dark:hover:border-cyan-500', 'text' => 'group-hover:text-cyan-600 dark:group-hover:text-cyan-400', 'badge' => 'bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300', 'chevron' => 'group-hover:text-cyan-400'],
+                'teal' => ['border' => 'hover:border-teal-400 dark:hover:border-teal-500', 'text' => 'group-hover:text-teal-600 dark:group-hover:text-teal-400', 'badge' => 'bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300', 'chevron' => 'group-hover:text-teal-400'],
             ];
         @endphp
 

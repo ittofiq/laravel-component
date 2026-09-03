@@ -10,6 +10,7 @@
         'layout' => ['icon' => '🏗️', 'label' => 'Layout', 'count' => 11],
         'custom' => ['icon' => '🎁', 'label' => 'Custom', 'count' => 8],
         'blog' => ['icon' => '📰', 'label' => 'Blog', 'count' => 12],
+        'auth' => ['icon' => '🔐', 'label' => 'Auth', 'count' => 4],
     ];
     $current = $currentCategory ?? null;
 @endphp

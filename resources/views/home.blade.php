@@ -44,7 +44,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             @php
                 $categories = [
-                    ['route' => 'components.category', 'param' => 'ui', 'icon' => '🎨', 'label' => 'UI', 'count' => 23, 'desc' => 'Button, Badge, Avatar, Card, Tag, Chip, Divider, Cookie Consent, Share Button, Drag & Drop, Tree View, Command Palette, Context Menu, Scroll to Top, Lazy Image, Countdown, Dark Mode Preview, Notification Badge, Code Block, Live Code Editor, Mobile Preview, Image Compare, Page Skeleton', 'color' => 'blue'],
+                    ['route' => 'components.category', 'param' => 'ui', 'icon' => '🎨', 'label' => 'UI', 'count' => 24, 'desc' => 'Button, Badge, Avatar, Card, Tag, Chip, Divider, Cookie Consent, Share Button, Drag & Drop, Tree View, Command Palette, Context Menu, Scroll to Top, Lazy Image, Countdown, Dark Mode Preview, Notification Badge, Code Block, Live Code Editor, Mobile Preview, Image Compare, Page Skeleton', 'color' => 'blue'],
                     ['route' => 'components.category', 'param' => 'form', 'icon' => '📝', 'label' => 'Form', 'count' => 27, 'desc' => 'Input, Password, OTP, Chip Input, Range Slider, Input Group, Floating Label, Select, Toggle, Rating, Date Picker, Rich Text, Color Picker', 'color' => 'green'],
                     ['route' => 'components.category', 'param' => 'data', 'icon' => '📊', 'label' => 'Data', 'count' => 9, 'desc' => 'Table, Advanced Table, Timeline, Kanban, Calendar, Charts, Progress Bar, Stat Card, Card Grid', 'color' => 'purple'],
                     ['route' => 'components.category', 'param' => 'navigation', 'icon' => '🧭', 'label' => 'Navigation', 'count' => 9, 'desc' => 'Navbar, Breadcrumb, Pagination, Tabs, Stepper, Dropdown, Mobile Menu, Sidebar', 'color' => 'orange'],
@@ -52,6 +52,8 @@
                     ['route' => 'components.category', 'param' => 'feedback', 'icon' => '🔔', 'label' => 'Feedback', 'count' => 6, 'desc' => 'Alert, Toast, Toast Container, Spinner, Skeleton, Empty State', 'color' => 'red'],
                     ['route' => 'components.category', 'param' => 'layout', 'icon' => '🏗️', 'label' => 'Layout', 'count' => 11, 'desc' => 'Hero, Section, Container, Grid, Footer, FAQ, Gallery, Accordion, Carousel, Masonry Grid, Waterfall Layout', 'color' => 'indigo'],
                     ['route' => 'components.category', 'param' => 'custom', 'icon' => '🎁', 'label' => 'Custom', 'count' => 8, 'desc' => 'Loader, Rating Stars, Shopping Cart, User Profile, Permission System, Pricing Card, Protected Button, 2FA Auth', 'color' => 'yellow'],
+                    ['route' => 'components.category', 'param' => 'blog', 'icon' => '📰', 'label' => 'Blog', 'count' => 12, 'desc' => 'Article Card, Article Meta, Comment, Post, Author Card, Related Posts, Sidebar, Widget, Category List, Popular Posts, Tag Cloud, Newsletter', 'color' => 'cyan'],
+                    ['route' => 'components.category', 'param' => 'auth', 'icon' => '🔐', 'label' => 'Auth', 'count' => 4, 'desc' => 'Login Card, Register Card, Reset Password Card, Change Password Card', 'color' => 'teal'],
                 ];
 
                 $colorClasses = [
@@ -63,6 +65,8 @@
                     'red' => ['border' => 'hover:border-red-400 dark:hover:border-red-500', 'text' => 'group-hover:text-red-600 dark:group-hover:text-red-400', 'badge' => 'bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300'],
                     'indigo' => ['border' => 'hover:border-indigo-400 dark:hover:border-indigo-500', 'text' => 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400', 'badge' => 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300'],
                     'yellow' => ['border' => 'hover:border-yellow-400 dark:hover:border-yellow-500', 'text' => 'group-hover:text-yellow-600 dark:group-hover:text-yellow-400', 'badge' => 'bg-yellow-50 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300'],
+                    'cyan' => ['border' => 'hover:border-cyan-400 dark:hover:border-cyan-500', 'text' => 'group-hover:text-cyan-600 dark:group-hover:text-cyan-400', 'badge' => 'bg-cyan-50 dark:bg-cyan-900/30 text-cyan-700 dark:text-cyan-300'],
+                    'teal' => ['border' => 'hover:border-teal-400 dark:hover:border-teal-500', 'text' => 'group-hover:text-teal-600 dark:group-hover:text-teal-400', 'badge' => 'bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300'],
                 ];
             @endphp
 
@@ -119,7 +123,7 @@
 
     {{-- Footer --}}
     <div class="text-center text-gray-500 dark:text-gray-400 text-sm">
-        <p class="mb-1">BacaDev Component Library v5.2 • 101 Komponen</p>
+        <p class="mb-1">BacaDev Component Library v5.3 • 118 Komponen</p>
         <p>Tailwind CSS + Laravel + Alpine.js</p>
     </div>
 </div>
