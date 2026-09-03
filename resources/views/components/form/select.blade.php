@@ -26,7 +26,7 @@
         </label>
     @endif
 
-    <div x-data="selectComponent('{{ $uniqueId }}', {{ $optionsJson }}, {{ $disabled ? 'true' : 'false' }})" class="relative">
+    <div x-data="selectComponent('{{ $uniqueId }}', {{ $optionsJson }}, {{ $disabled ? 'true' : 'false' }})" @click.outside="isOpen = false" class="relative">
         <!-- Hidden select untuk form submission -->
         <select
             id="{{ $uniqueId }}-hidden"
@@ -69,7 +69,7 @@
             </button>
 
             <!-- Dropdown List -->
-            <div x-show="isOpen" @click.outside="isOpen = false" class="absolute top-full left-0 right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg">
+            <div x-show="isOpen" class="absolute top-full left-0 right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg">
                 <!-- Search Input -->
                 @if($searchable)
                     <div class="p-2 border-b border-gray-200 dark:border-gray-700">

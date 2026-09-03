@@ -24,7 +24,7 @@
         </label>
     @endif
 
-    <div x-data="autoCompleteComponent('{{ $uniqueId }}', {{ $optionsJson }}, {{ $disabled ? 'true' : 'false' }})" class="relative">
+    <div x-data="autoCompleteComponent('{{ $uniqueId }}', {{ $optionsJson }}, {{ $disabled ? 'true' : 'false' }})" @click.outside="isOpen = false" class="relative">
         <input
             type="text"
             id="{{ $uniqueId }}"
@@ -42,7 +42,7 @@
         />
 
         <!-- Suggestions Dropdown -->
-        <div x-show="isOpen && suggestions.length > 0" @click.outside="isOpen = false" class="absolute top-full left-0 right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+        <div x-show="isOpen && suggestions.length > 0" class="absolute top-full left-0 right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-y-auto">
             <template x-for="(suggestion, index) in suggestions" :key="index">
                 <div
                     @click="selectSuggestion(index)"
@@ -75,13 +75,9 @@ function autoCompleteComponent(uniqueId, allOptions, isDisabled) {
         allOptions,
         isDisabled,
         selectedText: '',
-        suggestions: [],
+        suggestions: [...allOptions],
         highlightedIndex: -1,
         isOpen: false,
-
-        init() {
-            this.suggestions = [...this.allOptions];
-        },
 
         filterSuggestions() {
             if (!this.selectedText.trim()) {

@@ -31,7 +31,7 @@
     $defaultCode = $default['code'];
 @endphp
 
-<div class="flex flex-col gap-1.5" x-data="phoneInput('{{ $uniqueId }}', {{ $countriesJson }}, '{{ $defaultCountry }}')">
+<div class="flex flex-col gap-1.5" x-data="phoneInput('{{ $uniqueId }}', {{ $countriesJson }}, '{{ $defaultCountry }}')" @click.outside="open = false">
     @if($label)
         <label for="{{ $uniqueId }}" class="text-sm font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
             {{ $label }}
@@ -56,7 +56,6 @@
             {{-- Dropdown --}}
             <div
                 x-show="open"
-                @click.outside="open = false"
                 x-transition:enter="transition-all duration-200 ease-out"
                 x-transition:enter-start="opacity-0 scale-95"
                 x-transition:enter-end="opacity-100 scale-100"

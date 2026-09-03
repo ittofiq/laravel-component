@@ -23,7 +23,7 @@
         </label>
     @endif
 
-    <div class="relative">
+    <div class="relative" @click.outside="open = false">
         {{-- Hidden input for form submission --}}
         <input type="hidden" name="{{ $name }}" x-model="selected">
 
@@ -65,7 +65,6 @@
         {{-- Dropdown --}}
         <div
             x-show="open && filteredOptions.length > 0"
-            @click.outside="open = false"
             class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-20 max-h-60 overflow-y-auto"
         >
             <template x-for="(option, index) in filteredOptions" :key="index">
@@ -86,7 +85,6 @@
         {{-- No results --}}
         <div
             x-show="open && filteredOptions.length === 0 && search.length > 0"
-            @click.outside="open = false"
             class="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg z-20 p-4 text-center text-sm text-gray-500 dark:text-gray-400"
         >
             Tidak ada hasil untuk "<span x-text="search"></span>"

@@ -23,7 +23,7 @@
         </label>
     @endif
 
-    <div class="relative" x-data="multiSelectData({{ $optionsJson }}, {{ $disabled ? 'true' : 'false' }})">
+    <div class="relative" x-data="multiSelectData({{ $optionsJson }}, {{ $disabled ? 'true' : 'false' }})" @click.outside="open = false">
 
         <!-- Hidden input -->
         <input type="hidden" name="{{ $name }}[]" :value="JSON.stringify(selected)" />
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Dropdown -->
-        <div x-show="open" @click.outside="open = false" class="absolute top-full left-0 right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+        <div x-show="open" class="absolute top-full left-0 right-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg max-h-60 overflow-y-auto">
 
             <template x-for="(text, value) in filteredOptions" :key="value">
                 <div

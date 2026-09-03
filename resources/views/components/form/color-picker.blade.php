@@ -22,7 +22,7 @@
         </label>
     @endif
 
-    <div x-data="colorPickerComponent('{{ $uniqueId }}', '{{ $value }}', {{ $disabled ? 'true' : 'false' }})" class="flex flex-col gap-3">
+    <div x-data="colorPickerComponent('{{ $uniqueId }}', '{{ $value }}', {{ $disabled ? 'true' : 'false' }})" @click.outside="isOpen = false" class="flex flex-col gap-3">
         <!-- Color Input -->
         <div class="flex gap-2 items-center">
             <input
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Color Picker Dropdown -->
-        <div x-show="isOpen" @click.outside="isOpen = false" class="flex flex-col gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
+        <div x-show="isOpen" class="flex flex-col gap-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700">
             <!-- Color Spectrum -->
             <div class="flex flex-col gap-2">
                 <label class="text-xs font-semibold text-gray-700 dark:text-gray-300">Saturation & Value</label>

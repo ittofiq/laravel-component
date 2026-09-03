@@ -22,7 +22,7 @@
         </label>
     @endif
 
-    <div x-data="datePickerComponent('{{ $uniqueId }}', '{{ $value }}', {{ $disabled ? 'true' : 'false' }})" class="relative">
+    <div x-data="datePickerComponent('{{ $uniqueId }}', '{{ $value }}', {{ $disabled ? 'true' : 'false' }})" @click.outside="isOpen = false" class="relative">
         <input
             type="hidden"
             id="{{ $uniqueId }}"
@@ -35,14 +35,13 @@
             placeholder="Pilih tanggal..."
             x-model="displayDate"
             @click="isOpen = !isOpen"
-            @focus="isOpen = true"
             readonly
             class="w-full px-4 py-2 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 cursor-pointer {{ $error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500' }} bg-white dark:bg-gray-700 text-gray-900 dark:text-white {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
             {{ $disabled ? 'disabled' : '' }}
         />
 
         <!-- Calendar Dropdown -->
-        <div x-show="isOpen" @click.outside="isOpen = false" class="absolute top-full left-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg p-4 w-72">
+        <div x-show="isOpen" class="absolute top-full left-0 mt-1 z-50 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg shadow-lg p-4 w-72">
             <!-- Month/Year Navigation -->
             <div class="flex justify-between items-center mb-4">
                 <button @click="previousMonth" class="px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded">←</button>
