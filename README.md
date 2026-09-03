@@ -2,15 +2,15 @@
 
 **Production-ready Tailwind CSS Component Library untuk Laravel**
 
-![Version](https://img.shields.io/badge/version-5.3-blue.svg)
-![Components](https://img.shields.io/badge/components-101-green.svg)
+![Version](https://img.shields.io/badge/version-5.4-blue.svg)
+![Components](https://img.shields.io/badge/components-118-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-orange.svg)
 
 ---
 
 ## 📊 Library Overview
 
-BacaDev adalah component library dengan **101 production-ready komponen** yang dibangun menggunakan:
+BacaDev adalah component library dengan **118 production-ready komponen** yang dibangun menggunakan:
 - **Tailwind CSS 4.0** - Utility-first styling
 - **Laravel Blade** - Template engine
 - **Alpine.js** - Lightweight interactivity
@@ -18,7 +18,7 @@ BacaDev adalah component library dengan **101 production-ready komponen** yang d
 
 ### ✨ Fitur Utama
 
-✅ **101 Komponen** - UI, Form, Data, Navigation, Overlay, Feedback, Layout, Custom  
+✅ **118 Komponen** - UI, Form, Data, Navigation, Overlay, Feedback, Layout, Custom, Blog, Auth  
 ✅ **100% Dark Mode** - Full support di semua komponen  
 ✅ **Fully Responsive** - Mobile-first design  
 ✅ **Minimal Dependencies** - Tailwind CSS, Alpine.js & Chart.js  
@@ -98,6 +98,12 @@ Hero, Section, Container, Grid, Footer, FAQ, Image Gallery, Accordion, Carousel,
 
 ### 🎁 Custom (8)
 Loader, Rating Stars, Shopping Cart, User Profile, Permission System, Pricing Card, Protected Button, 2FA Auth
+
+### 📰 Blog (12)
+Article Card, Article Meta, Comment, Post, Author Card, Related Posts, Sidebar, Widget, Category List, Popular Posts, Tag Cloud, Newsletter
+
+### 🔐 Auth (4)
+Login Card, Register Card, Reset Password Card, Change Password Card
 
 ---
 
@@ -224,7 +230,7 @@ Mobile-first approach dengan Tailwind breakpoints (sm, md, lg, xl, 2xl)
 
 | Metric | Value |
 |--------|-------|
-| Total Components | 101 |
+| Total Components | 118 |
 | UI Components | 24 |
 | Form Components | 27 |
 | Data Components | 9 |
@@ -233,6 +239,8 @@ Mobile-first approach dengan Tailwind breakpoints (sm, md, lg, xl, 2xl)
 | Feedback Components | 6 |
 | Layout Components | 11 |
 | Custom Components | 8 |
+| Blog Components | 12 |
+| Auth Components | 4 |
 | Dark Mode Support | 100% |
 | Responsive Breakpoints | 5 |
 | External Dependencies | Alpine.js + Chart.js |

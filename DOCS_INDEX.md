@@ -97,7 +97,7 @@ BacaDev Component Library Documentation
 ├── 📄 DOCS_INDEX.md          # This file
 │
 └── 📁 resources/views/
-    ├── components/           # 101 Blade components
+    ├── components/           # 118 Blade components
     ├── layouts/              # Base layouts (app + admin)
     ├── admin/                # Admin template pages (Dashboard, Users, dsb.)
     └── pages/                # Demo pages
@@ -114,14 +114,12 @@ BacaDev Component Library Documentation
 
 ---
 
-## 🆕 What's New in v5.3
+## 🆕 What's New in v5.4
 
-**Admin Template + Component Explorer:**
-- Admin Layout Shell — sidebar (collapsible + section header + auto-active) + topbar (search ⌘K, notifikasi, dark mode, user dropdown) + command palette
-- 6 Halaman Admin — Dashboard, Users, Products, Orders, Settings, Analytics (Reports + Real-time)
-- Component Explorer — halaman /explorer dengan playground interaktif
-- Copy + Props API konsisten di semua card demo (x-ui.demo-card)
-- Berbagai bug fixes (chart double-init, dark mode flash, table JSON, dsb.)
+**Kategori Baru: Blog (12) + Auth (4):**
+- Blog — article-card, article-meta, comment (+ replies), post, author-card, related-posts, sidebar, widget, category-list, popular-posts, tag-cloud, newsletter
+- Auth — login-card, register-card, reset-password-card, change-password-card
+- Fix dropdown select-box (@click.outside dipindah ke parent)
 
 → See more in [CHANGELOG.md](CHANGELOG.md)
 

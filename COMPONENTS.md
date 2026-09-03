@@ -621,6 +621,50 @@ Kebanyakan komponen support props berikut:
 
 ---
 
+## 📰 Blog Components (12)
+
+```blade
+{{-- Article Card --}}
+<x-blog.article-card
+    title="Judul Artikel" excerpt="Ringkasan singkat..."
+    image="https://..." category="Web Development" categoryColor="blue"
+    author="Andi Wijaya" date="12 Agustus 2026" readTime="6" views="1.2K"
+/>
+
+{{-- Post (detail) --}}
+<x-blog.post title="Judul Artikel" category="Web Development" author="Andi" :tags="['Laravel', 'Tailwind']">
+    <p>Isi artikel...</p>
+</x-blog.post>
+
+{{-- Comment + balasan --}}
+<x-blog.comment name="Budi" time="2 jam lalu" text="Komentar...">
+    <x-slot:replies>
+        <x-blog.comment name="Andi" text="Balasan..." :author="true" />
+    </x-slot:replies>
+</x-blog.comment>
+
+{{-- Sidebar + widget --}}
+<x-blog.sidebar>
+    <x-blog.widget title="Kategori" icon="📂">
+        <x-blog.category-list :categories="[['name' => 'Web Dev', 'count' => 12]]" />
+    </x-blog.widget>
+    <x-blog.widget title="Tags" icon="🏷️">
+        <x-blog.tag-cloud :tags="['Laravel', 'Tailwind', 'Vue']" />
+    </x-blog.widget>
+</x-blog.sidebar>
+```
+
+## 🔐 Auth Components (4)
+
+```blade
+<x-auth.login-card title="Sign In" submitLabel="Masuk" />
+<x-auth.register-card title="Buat Akun" submitLabel="Daftar" />
+<x-auth.reset-password-card title="Reset Password" />
+<x-auth.change-password-card title="Ubah Password" />
+```
+
+---
+
 ## 📊 Summary
 
 | Category | Count | Components |
@@ -633,7 +677,9 @@ Kebanyakan komponen support props berikut:
 | Feedback | 6 | Alert, Toast, Toast Container, Spinner, Skeleton, Empty State |
 | Layout | 11 | Hero, Section, Container, Grid, Footer, FAQ, Image Gallery, Accordion, Carousel, Masonry Grid, Waterfall Layout |
 | Custom | 8 | Loader, Rating Stars, Shopping Cart, User Profile, Permission System, Pricing Card, Protected Button, 2FA Auth |
-| **Total** | **101** | |
+| Blog | 12 | Article Card, Article Meta, Comment, Post, Author Card, Related Posts, Sidebar, Widget, Category List, Popular Posts, Tag Cloud, Newsletter |
+| Auth | 4 | Login Card, Register Card, Reset Password Card, Change Password Card |
+| **Total** | **118** | |
 
 ---
 

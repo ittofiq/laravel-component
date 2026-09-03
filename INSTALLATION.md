@@ -219,7 +219,7 @@ npm run dev
 ## ✅ Verify Installation
 
 1. **Check Laravel**: http://localhost:8000 should load homepage
-2. **Check Components**: http://localhost:8000/components should show all 101 components
+2. **Check Components**: http://localhost:8000/components should show all 118 components
 3. **Check Dark Mode**: Toggle dark mode switch in navbar
 4. **Test Interactive Component**: Try Date Picker, Multi-Select, etc.
 
@@ -232,7 +232,7 @@ bacadev/
 ├── app/                        # Laravel app code
 ├── resources/
 │   ├── views/
-│   │   ├── components/         # 101 Blade components
+│   │   ├── components/         # 118 Blade components
 │   │   ├── layouts/            # Base layouts (app + admin)
 │   │   ├── admin/              # Admin template pages
 │   │   └── pages/              # Demo pages

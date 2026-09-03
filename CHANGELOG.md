@@ -4,6 +4,35 @@ Semua perubahan penting di BacaDev Component Library dicatat di file ini.
 
 ---
 
+## [5.4] - September 2026
+
+### ✨ Kategori Baru: Blog (12 komponen)
+
+- **Article Card** — kartu artikel (gambar, kategori, excerpt, author, views)
+- **Article Meta** — baris info (author, tanggal, waktu baca, view count)
+- **Comment** — komentar + balasan + nested replies
+- **Post** — wrapper artikel detail (gambar, judul, meta, isi, tags)
+- **Author Card** — bio penulis + link sosial
+- **Related Posts** — artikel terkait (grid article-card)
+- **Sidebar** + **Widget** — container & kartu widget
+- **Category List** — daftar kategori + jumlah
+- **Popular Posts** — artikel populer dengan thumbnail
+- **Tag Cloud** — tag pill
+- **Newsletter** — form langganan email
+
+### ✨ Kategori Baru: Auth (4 komponen)
+
+- **Login Card** — email + password + remember + forgot
+- **Register Card** — nama + email + password + konfirmasi + terms
+- **Reset Password Card** — email (minta link reset)
+- **Change Password Card** — password saat ini + baru + konfirmasi
+
+### 🐛 Perbaikan
+
+- Dropdown select-box: `@click.outside` dipindah ke parent (auto-complete, combobox, multi-select, date-picker, select, color-picker, phone-input)
+
+---
+
 ## [5.3] - September 2026
 
 ### ✨ Admin Template
@@ -293,7 +322,8 @@ Loader, Rating, Product Card, Shopping Cart, User Profile, Notification Badge, W
 
 | Versi | Komponen | Fitur Baru | Status |
 |-------|----------|------------|--------|
-| 5.3 | 101 | Admin template + explorer + copy/props API | ✅ Current |
+| 5.4 | 118 | Blog (12) + Auth (4) | ✅ Current |
+| 5.3 | 101 | Admin template + explorer + copy/props API | ✅ Stable |
 | 5.2 | 101 | 3 baru + 15 enhanced + demo | ✅ Stable |
 | 5.1 | 98 | 6 baru + 5 enhanced | ✅ Stable |
 | 5.0 | 95 | 23 baru + 15 enhanced | ✅ Stable |
@@ -329,6 +359,8 @@ Loader, Rating, Product Card, Shopping Cart, User Profile, Notification Badge, W
 - [x] Component explorer (native) — halaman /explorer + komponen x-ui.playground interaktif
 - [x] Admin template — layout shell + 6 halaman admin (Dashboard, Users, Products, Orders, Settings, Analytics)
 - [x] Copy + Props API standardized — x-ui.demo-card di semua card demo
+- [x] Blog components — 12 komponen artikel/berita (card, comment, post, sidebar widget, dsb.)
+- [x] Auth components — 4 komponen form auth (login, register, reset, change password)
 
 ### Mendatang
 - [ ] Visual regression testing
