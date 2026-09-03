@@ -23,8 +23,8 @@
         ['id' => 'dashboard', 'label' => 'Dashboard', 'icon' => '📊', 'route' => 'admin.dashboard', 'href' => route('admin.dashboard')],
         ['header' => 'Manajemen'],
         ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'route' => 'admin.users', 'href' => route('admin.users')],
-        ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'route' => 'admin.products', 'href' => '#'],
-        ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'route' => 'admin.orders', 'href' => '#'],
+        ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'route' => 'admin.products', 'href' => route('admin.products')],
+        ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'route' => 'admin.orders', 'href' => route('admin.orders')],
         ['header' => 'Lainnya'],
         ['id' => 'analytics', 'label' => 'Analytics', 'icon' => '📈', 'children' => [
             ['id' => 'reports', 'label' => 'Reports', 'icon' => '📄', 'route' => 'admin.analytics.reports', 'href' => '#'],
@@ -202,8 +202,8 @@
         :items="[
             ['id' => 'dashboard', 'label' => 'Dashboard', 'icon' => '📊', 'description' => 'Ke halaman dashboard', 'href' => '/admin', 'color' => 'blue', 'shortcut' => 'D'],
             ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'description' => 'Kelola pengguna', 'href' => route('admin.users'), 'color' => 'green', 'shortcut' => 'U'],
-            ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'description' => 'Kelola produk', 'href' => '#', 'color' => 'purple', 'shortcut' => 'P'],
-            ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'description' => 'Kelola pesanan', 'href' => '#', 'color' => 'orange', 'shortcut' => 'O'],
+            ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'description' => 'Kelola produk', 'href' => route('admin.products'), 'color' => 'purple', 'shortcut' => 'P'],
+            ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'description' => 'Kelola pesanan', 'href' => route('admin.orders'), 'color' => 'orange', 'shortcut' => 'O'],
             ['id' => 'settings', 'label' => 'Settings', 'icon' => '⚙️', 'description' => 'Pengaturan aplikasi', 'href' => '#', 'color' => 'gray', 'shortcut' => 'S'],
         ]"
     />

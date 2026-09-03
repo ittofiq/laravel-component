@@ -48,6 +48,14 @@ Route::get('/admin/users', function () {
     return view('admin.users');
 })->name('admin.users');
 
+Route::get('/admin/products', function () {
+    return view('admin.products');
+})->name('admin.products');
+
+Route::get('/admin/orders', function () {
+    return view('admin.orders');
+})->name('admin.orders');
+
 Route::get('/custom-components', function () {
     if (app()->environment('production')) {
         abort(404);

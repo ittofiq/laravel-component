@@ -16,6 +16,7 @@
     'printLabel' => 'Print',
     'filename' => 'export.csv',
     'createLabel' => 'Create',
+    'createTitle' => null,
     'emptyText' => 'Tidak ada data',
     'viewLabel' => 'View',
     'editLabel' => 'Edit',
@@ -168,7 +169,7 @@
 
     {{-- Create Modal --}}
     <div id="{{ $tableId }}-create-modal" class="relative bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6 max-w-md w-full mx-4 max-h-[85vh] overflow-y-auto hidden" onclick="event.stopPropagation()">
-        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">{{ $createLabel }} New Row</h3>
+        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">{{ $createTitle ?? $createLabel }}</h3>
         <div id="{{ $tableId }}-create-form" class="space-y-3">
             @foreach($headers as $header)
                 @php $key = $header['key'] ?? $header; $label = $header['label'] ?? $header; @endphp
