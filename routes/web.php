@@ -44,6 +44,10 @@ Route::get('/admin', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+Route::get('/admin/users', function () {
+    return view('admin.users');
+})->name('admin.users');
+
 Route::get('/custom-components', function () {
     if (app()->environment('production')) {
         abort(404);

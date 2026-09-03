@@ -22,7 +22,7 @@
         ['header' => 'Utama'],
         ['id' => 'dashboard', 'label' => 'Dashboard', 'icon' => '📊', 'route' => 'admin.dashboard', 'href' => route('admin.dashboard')],
         ['header' => 'Manajemen'],
-        ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'route' => 'admin.users', 'href' => '#'],
+        ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'route' => 'admin.users', 'href' => route('admin.users')],
         ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'route' => 'admin.products', 'href' => '#'],
         ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'route' => 'admin.orders', 'href' => '#'],
         ['header' => 'Lainnya'],
@@ -201,7 +201,7 @@
         emptyText="Tidak ada hasil."
         :items="[
             ['id' => 'dashboard', 'label' => 'Dashboard', 'icon' => '📊', 'description' => 'Ke halaman dashboard', 'href' => '/admin', 'color' => 'blue', 'shortcut' => 'D'],
-            ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'description' => 'Kelola pengguna', 'href' => '#', 'color' => 'green', 'shortcut' => 'U'],
+            ['id' => 'users', 'label' => 'Users', 'icon' => '👥', 'description' => 'Kelola pengguna', 'href' => route('admin.users'), 'color' => 'green', 'shortcut' => 'U'],
             ['id' => 'products', 'label' => 'Products', 'icon' => '📦', 'description' => 'Kelola produk', 'href' => '#', 'color' => 'purple', 'shortcut' => 'P'],
             ['id' => 'orders', 'label' => 'Orders', 'icon' => '🛒', 'description' => 'Kelola pesanan', 'href' => '#', 'color' => 'orange', 'shortcut' => 'O'],
             ['id' => 'settings', 'label' => 'Settings', 'icon' => '⚙️', 'description' => 'Pengaturan aplikasi', 'href' => '#', 'color' => 'gray', 'shortcut' => 'S'],
