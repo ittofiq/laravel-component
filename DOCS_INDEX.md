@@ -31,8 +31,8 @@ BacaDev Component Library Documentation
 ---
 
 ### 3. **[COMPONENTS.md](COMPONENTS.md)** - Complete Component List
-- All 101 components dengan usage examples
-- UI Components (23)
+- All 118 components dengan usage examples
+- UI Components (24)
 - Form Components (27)
 - Data Components (9)
 - Navigation (9)
@@ -40,6 +40,8 @@ BacaDev Component Library Documentation
 - Feedback (6)
 - Layout (11)
 - Custom (8)
+- Blog Components (12)
+- Auth Components (4)
 - Common props & attributes
 
 **Reference this** ketika ingin tahu cara menggunakan setiap komponen.
@@ -47,7 +49,7 @@ BacaDev Component Library Documentation
 ---
 
 ### 4. **[CHANGELOG.md](CHANGELOG.md)** - Version History
-- Version releases (5.1, 5.0, 4.0, 3.0, 2.0, 1.0)
+- Version releases (5.4, 5.3, 5.2, 5.1, 5.0, 4.0, 3.0, 2.0, 1.0)
 - New features per version
 - Bug fixes
 - Migration guides
