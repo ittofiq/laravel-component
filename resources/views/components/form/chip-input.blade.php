@@ -8,9 +8,21 @@
     'error' => null,
     'required' => false,
     'disabled' => false,
+    'size' => 'md',
 ])
 
-@php $uniqueId = 'chip-' . uniqid(); $chipsJson = json_encode($chips); @endphp
+@php
+    $sizeClass = match($size) {
+        'xs' => 'px-2 py-1 text-xs',
+        'sm' => 'px-2.5 py-1.5 text-sm',
+        'md' => 'px-3 py-2 text-sm',
+        'lg' => 'px-4 py-2.5 text-base',
+        'xl' => 'px-5 py-3 text-lg',
+        default => 'px-3 py-2 text-sm',
+    };
+    $uniqueId = 'chip-' . uniqid();
+    $chipsJson = json_encode($chips);
+@endphp
 
 <div class="flex flex-col gap-2">
     @if($label)
@@ -23,7 +35,7 @@
     <div
         x-data="chipInput({{ $chipsJson }}, {{ $maxChips ?? 'null' }}, '{{ $name }}')"
         @click="$refs.input.focus()"
-        class="flex flex-wrap gap-2 px-3 py-2.5 rounded-lg border cursor-text transition-colors duration-200 focus-within:ring-2 min-h-[42px] {{ $error ? 'border-red-500 focus-within:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus-within:ring-blue-500 focus-within:border-blue-500' }} bg-white dark:bg-gray-700 {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
+        class="flex flex-wrap gap-2 {{ $sizeClass }} rounded-lg border cursor-text transition-colors duration-200 focus-within:ring-2 min-h-[42px] {{ $error ? 'border-red-500 focus-within:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus-within:ring-blue-500 focus-within:border-blue-500' }} bg-white dark:bg-gray-700 {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
     >
         {{-- Chips --}}
         <template x-for="(chip, index) in chips" :key="index">

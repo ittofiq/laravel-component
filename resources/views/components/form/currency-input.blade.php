@@ -9,9 +9,18 @@
     'error' => null,
     'required' => false,
     'disabled' => false,
+    'size' => 'md',
 ])
 
 @php
+    $sizeClass = match($size) {
+        'xs' => 'py-1 text-xs',
+        'sm' => 'py-1.5 text-sm',
+        'md' => 'py-2 text-sm',
+        'lg' => 'py-2.5 text-base',
+        'xl' => 'py-3 text-lg',
+        default => 'py-2 text-sm',
+    };
     $uniqueId = 'currency-' . uniqid();
     $currencies = [
         'IDR' => ['symbol' => 'Rp', 'code' => 'IDR', 'locale' => 'id-ID'],
@@ -54,7 +63,7 @@
             @input="format"
             @focus="$event.target.select()"
             placeholder="{{ $placeholder }}"
-            class="w-full pl-10 pr-12 py-2.5 rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-right font-mono {{ $error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500' }} {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
+            class="w-full pl-10 pr-12 {{ $sizeClass }} rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 text-right font-mono {{ $error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500' }} {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
             {{ $required ? 'required' : '' }}
             {{ $disabled ? 'disabled' : '' }}
         />

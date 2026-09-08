@@ -6,9 +6,18 @@
     'error' => null,
     'required' => false,
     'disabled' => false,
+    'size' => 'md',
 ])
 
 @php
+    $sizeClass = match($size) {
+        'xs' => 'px-2 py-1 text-xs',
+        'sm' => 'px-2.5 py-1.5 text-sm',
+        'md' => 'px-3 py-2 text-sm',
+        'lg' => 'px-4 py-2.5 text-base',
+        'xl' => 'px-5 py-3 text-lg',
+        default => 'px-3 py-2 text-sm',
+    };
     $uniqueId = 'colorpicker-' . uniqid();
 @endphp
 
@@ -43,7 +52,7 @@
                 placeholder="#000000"
                 x-model="selectedColor"
                 @input="updateColorFromText"
-                class="flex-1 px-3 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
+                class="flex-1 {{ $sizeClass }} rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
                 {{ $disabled ? 'disabled' : '' }}
             />
 

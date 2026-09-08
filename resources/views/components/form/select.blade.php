@@ -4,6 +4,7 @@
     'label' => null,
     'options' => [],
     'placeholder' => 'Pilih opsi...',
+    'size' => 'md',
     'error' => null,
     'required' => false,
     'disabled' => false,
@@ -14,6 +15,14 @@
 @php
     $uniqueId = 'select-' . uniqid();
     $optionsJson = json_encode($options);
+    $sizeClass = match($size) {
+        'xs' => 'px-2 py-1 text-xs',
+        'sm' => 'px-2.5 py-1.5 text-sm',
+        'md' => 'px-4 py-2 text-sm',
+        'lg' => 'px-4 py-2.5 text-base',
+        'xl' => 'px-5 py-3 text-lg',
+        default => 'px-4 py-2 text-sm',
+    };
 @endphp
 
 <div class="flex flex-col gap-2">
@@ -46,7 +55,7 @@
             <button
                 type="button"
                 @click="isOpen = !isOpen"
-                class="w-full px-4 py-2 rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 text-left flex items-center justify-between
+                class="w-full {{ $sizeClass }} rounded-lg border transition-all duration-200 focus:outline-none focus:ring-2 text-left flex items-center justify-between
                     {{ $error
                         ? 'border-red-500 focus:ring-red-500 focus:border-red-500'
                         : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500'

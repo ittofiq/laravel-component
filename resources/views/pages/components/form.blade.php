@@ -14,6 +14,7 @@
                 ['name' => 'name', 'type' => 'string|null', 'default' => 'null', 'description' => 'Nama field'],
                 ['name' => 'label', 'type' => 'string|null', 'default' => 'null', 'description' => 'Label'],
                 ['name' => 'placeholder', 'type' => 'string|null', 'default' => 'null', 'description' => 'Placeholder'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'xs, sm, md, lg, xl'],
                 ['name' => 'required', 'type' => 'bool', 'default' => 'false', 'description' => 'Wajib diisi'],
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false', 'description' => 'Nonaktif'],
                 ['name' => 'error', 'type' => 'string|null', 'default' => 'null', 'description' => 'Pesan error'],
@@ -22,18 +23,39 @@
                 <x-form.input name="labeled" label="Email" type="email" placeholder="test@example.com" class="mt-3" />
                 <x-form.input name="required" label="Username" required placeholder="Enter username" class="mt-3" />
                 <x-form.input name="disabled" label="Disabled" disabled placeholder="This is disabled" class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.input name="i_xs" placeholder="Extra small" size="xs" />
+                        <x-form.input name="i_sm" placeholder="Small" size="sm" />
+                        <x-form.input name="i_md" placeholder="Medium" size="md" />
+                        <x-form.input name="i_lg" placeholder="Large" size="lg" />
+                        <x-form.input name="i_xl" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Textarea" component="form.textarea" :props="[
                 ['name' => 'name', 'type' => 'string|null', 'default' => 'null'],
                 ['name' => 'label', 'type' => 'string|null', 'default' => 'null'],
                 ['name' => 'placeholder', 'type' => 'string|null', 'default' => 'null'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'xs, sm, md, lg, xl'],
                 ['name' => 'rows', 'type' => 'int', 'default' => '4', 'description' => 'Jumlah baris'],
                 ['name' => 'required', 'type' => 'bool', 'default' => 'false'],
                 ['name' => 'error', 'type' => 'string|null', 'default' => 'null'],
             ]">
                 <x-form.textarea name="basic" placeholder="Basic textarea" />
                 <x-form.textarea name="labeled" label="Message" placeholder="Your message..." class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.textarea name="t_xs" placeholder="Extra small" size="xs" rows="2" />
+                        <x-form.textarea name="t_sm" placeholder="Small" size="sm" rows="2" />
+                        <x-form.textarea name="t_md" placeholder="Medium" size="md" rows="2" />
+                        <x-form.textarea name="t_lg" placeholder="Large" size="lg" rows="2" />
+                        <x-form.textarea name="t_xl" placeholder="Extra large" size="xl" rows="2" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Select" component="form.select" :props="[
@@ -41,10 +63,21 @@
                 ['name' => 'label', 'type' => 'string|null', 'default' => 'null'],
                 ['name' => 'options', 'type' => 'array', 'default' => '[]', 'description' => 'value => label'],
                 ['name' => 'placeholder', 'type' => 'string', 'default' => '\'Pilih opsi...\''],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'xs, sm, md, lg, xl'],
                 ['name' => 'required', 'type' => 'bool', 'default' => 'false'],
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.select name="option" label="Choose" :options="['a' => 'Option A', 'b' => 'Option B', 'c' => 'Option C']" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.select name="s_xs" :options="['a' => 'Extra small']" size="xs" />
+                        <x-form.select name="s_sm" :options="['a' => 'Small']" size="sm" />
+                        <x-form.select name="s_md" :options="['a' => 'Medium']" size="md" />
+                        <x-form.select name="s_lg" :options="['a' => 'Large']" size="lg" />
+                        <x-form.select name="s_xl" :options="['a' => 'Extra large']" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Checkbox & Radio" component="form.checkbox" :props="[

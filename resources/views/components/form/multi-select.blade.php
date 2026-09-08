@@ -7,9 +7,18 @@
     'error' => null,
     'required' => false,
     'disabled' => false,
+    'size' => 'md',
 ])
 
 @php
+    $sizeClass = match($size) {
+        'xs' => 'px-2 py-1 text-xs',
+        'sm' => 'px-2.5 py-1.5 text-sm',
+        'md' => 'px-3 py-2 text-sm',
+        'lg' => 'px-4 py-2.5 text-base',
+        'xl' => 'px-5 py-3 text-lg',
+        default => 'px-3 py-2 text-sm',
+    };
     $optionsJson = json_encode($options);
 @endphp
 
@@ -29,7 +38,7 @@
         <input type="hidden" name="{{ $name }}[]" :value="JSON.stringify(selected)" />
 
         <!-- Selection box -->
-        <div class="w-full min-h-10 px-3 py-2 rounded-lg border transition-all duration-200 focus-within:ring-2 {{ $error ? 'border-red-500 focus-within:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus-within:ring-blue-500' }} bg-white dark:bg-gray-700 cursor-pointer {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}" @click="open = !open">
+        <div class="w-full min-h-10 {{ $sizeClass }} rounded-lg border transition-all duration-200 focus-within:ring-2 {{ $error ? 'border-red-500 focus-within:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus-within:ring-blue-500' }} bg-white dark:bg-gray-700 cursor-pointer {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}" @click="open = !open">
 
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 mb-1">
