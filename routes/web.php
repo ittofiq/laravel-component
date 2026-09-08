@@ -68,6 +68,18 @@ Route::get('/admin/analytics/realtime', function () {
     return view('admin.realtime');
 })->name('admin.analytics.realtime');
 
+Route::get('/blog', function () {
+    return view('blog.index');
+})->name('blog.index');
+
+Route::get('/blog/{slug}', function (string $slug) {
+    return view('blog.show', ['slug' => $slug]);
+})->name('blog.show');
+
+Route::get('/software-house', function () {
+    return view('software-house');
+})->name('software-house');
+
 Route::get('/custom-components', function () {
     if (app()->environment('production')) {
         abort(404);
