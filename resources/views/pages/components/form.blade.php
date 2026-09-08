@@ -64,12 +64,22 @@
                 ['name' => 'label', 'type' => 'string|null', 'default' => 'null'],
                 ['name' => 'checked', 'type' => 'bool', 'default' => 'false'],
                 ['name' => 'color', 'type' => 'string', 'default' => '\'blue\'', 'description' => 'blue, green, red, purple'],
-                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'sm, md, lg'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'xs, sm, md, lg, xl'],
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.toggle name="notifications" label="Enable Notifications" :checked="true" />
                 <x-form.toggle name="dark_mode" label="Dark Mode" color="green" class="mt-3" />
                 <x-form.toggle name="disabled_toggle" label="Disabled" disabled class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="flex flex-wrap gap-3 items-center">
+                        <x-form.toggle name="t_xs" size="xs" />
+                        <x-form.toggle name="t_sm" size="sm" />
+                        <x-form.toggle name="t_md" size="md" />
+                        <x-form.toggle name="t_lg" size="lg" />
+                        <x-form.toggle name="t_xl" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Password Input" component="form.password-input" :props="[
@@ -134,11 +144,22 @@
                 ['name' => 'label', 'type' => 'string|null', 'default' => 'null'],
                 ['name' => 'value', 'type' => 'int', 'default' => '0'],
                 ['name' => 'max', 'type' => 'int', 'default' => '5'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'xs, sm, md, lg, xl'],
                 ['name' => 'color', 'type' => 'string', 'default' => '\'yellow\''],
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.rating-input name="rating" label="Product Rating" :value="3" />
                 <x-form.rating-input name="satisfaction" label="Satisfaction" :value="4" color="green" class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.rating-input name="r_xs" :value="4" size="xs" />
+                        <x-form.rating-input name="r_sm" :value="4" size="sm" />
+                        <x-form.rating-input name="r_md" :value="4" size="md" />
+                        <x-form.rating-input name="r_lg" :value="4" size="lg" />
+                        <x-form.rating-input name="r_xl" :value="4" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Date Picker" component="form.date-picker" :props="[

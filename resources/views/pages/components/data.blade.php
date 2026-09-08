@@ -79,7 +79,7 @@
             <x-ui.demo-card title="Progress Bar" component="data.progress-bar" :props="[
                 ['name' => 'percent', 'type' => 'int', 'default' => '0', 'description' => 'Persentase 0-100'],
                 ['name' => 'color', 'type' => 'string', 'default' => '\'blue\'', 'description' => 'Warna bar'],
-                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'sm, md, lg'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'xs, sm, md, lg, xl'],
                 ['name' => 'striped', 'type' => 'bool', 'default' => 'false', 'description' => 'Pola garis'],
                 ['name' => 'animated', 'type' => 'bool', 'default' => 'false', 'description' => 'Animasi bergerak'],
                 ['name' => 'labelInside', 'type' => 'bool', 'default' => 'false', 'description' => 'Label di dalam bar'],
@@ -90,6 +90,16 @@
                 <x-data.progress-bar :percent="45" color="purple" :striped="true" class="mt-3" />
                 <x-data.progress-bar :percent="70" color="indigo" :animated="true" class="mt-3" />
                 <x-data.progress-bar :percent="90" color="red" size="lg" :labelInside="true" class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-data.progress-bar :percent="60" size="xs" />
+                        <x-data.progress-bar :percent="60" size="sm" />
+                        <x-data.progress-bar :percent="60" size="md" />
+                        <x-data.progress-bar :percent="60" size="lg" />
+                        <x-data.progress-bar :percent="60" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Stat Card" component="data.stat-card" :props="[

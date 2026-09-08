@@ -19,9 +19,11 @@
     ];
 
     $sizes = [
+        'xs' => ['w' => 'w-6', 'h' => 'h-3.5', 'dot' => 'w-2.5 h-2.5', 'translate' => 'translate-x-2.5'],
         'sm' => ['w' => 'w-8', 'h' => 'h-4', 'dot' => 'w-3 h-3', 'translate' => 'translate-x-4'],
         'md' => ['w' => 'w-11', 'h' => 'h-6', 'dot' => 'w-5 h-5', 'translate' => 'translate-x-5'],
         'lg' => ['w' => 'w-14', 'h' => 'h-7', 'dot' => 'w-6 h-6', 'translate' => 'translate-x-7'],
+        'xl' => ['w' => 'w-16', 'h' => 'h-8', 'dot' => 'w-7 h-7', 'translate' => 'translate-x-8'],
     ];
 
     $color = $colors[$color] ?? $colors['blue'];

@@ -37,9 +37,11 @@
                     <div>
                         <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
                         <div class="flex flex-wrap gap-2 items-center">
+                            <x-ui.button variant="primary" size="xs">XS</x-ui.button>
                             <x-ui.button variant="primary" size="sm">Small</x-ui.button>
                             <x-ui.button variant="primary" size="md">Medium</x-ui.button>
                             <x-ui.button variant="primary" size="lg">Large</x-ui.button>
+                            <x-ui.button variant="primary" size="xl">XL</x-ui.button>
                         </div>
                     </div>
                     <div>
@@ -89,7 +91,7 @@
                 <div x-show="apiOpen" x-collapse class="mt-3">
                     <x-ui.props-table :props="[
                         ['name' => 'variant', 'type' => 'string', 'default' => '\'primary\'', 'description' => 'Warna tombol: primary, secondary, danger, success'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran tombol: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran tombol: xs, sm, md, lg, xl'],
                         ['name' => 'type', 'type' => 'string', 'default' => '\'button\'', 'description' => 'HTML button type: button, submit, reset'],
                         ['name' => 'disabled', 'type' => 'bool', 'default' => 'false', 'description' => 'Nonaktifkan tombol jika true'],
                     ]" />
@@ -125,9 +127,11 @@
                     <div>
                         <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
                         <div class="flex flex-wrap gap-2 items-center">
+                            <x-ui.badge variant="primary" size="xs">XS</x-ui.badge>
                             <x-ui.badge variant="primary" size="sm">Small</x-ui.badge>
                             <x-ui.badge variant="primary" size="md">Medium</x-ui.badge>
                             <x-ui.badge variant="primary" size="lg">Large</x-ui.badge>
+                            <x-ui.badge variant="primary" size="xl">XL</x-ui.badge>
                         </div>
                     </div>
                     {{-- Playground --}}
@@ -169,7 +173,7 @@
                 <div x-show="apiOpen" x-collapse class="mt-3">
                     <x-ui.props-table :props="[
                         ['name' => 'variant', 'type' => 'string', 'default' => '\'primary\'', 'description' => 'Warna badge: primary, secondary, success, warning, danger'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran badge: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran badge: xs, sm, md, lg, xl'],
                     ]" />
                 </div>
             </div>
@@ -185,9 +189,11 @@
                     <div>
                         <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
                         <div class="flex gap-4 items-center">
-                            <x-ui.avatar initials="JD" size="sm" />
-                            <x-ui.avatar initials="AB" size="md" />
-                            <x-ui.avatar initials="CD" size="lg" />
+                            <x-ui.avatar initials="JD" size="xs" />
+                            <x-ui.avatar initials="AB" size="sm" />
+                            <x-ui.avatar initials="CD" size="md" />
+                            <x-ui.avatar initials="EF" size="lg" />
+                            <x-ui.avatar initials="GH" size="xl" />
                         </div>
                     </div>
                     <div>
@@ -230,7 +236,7 @@
                         ['name' => 'src', 'type' => 'string|null', 'default' => 'null', 'description' => 'URL gambar avatar (jika pakai foto)'],
                         ['name' => 'initials', 'type' => 'string|null', 'default' => 'null', 'description' => 'Inisial yang ditampilkan (fallback)'],
                         ['name' => 'name', 'type' => 'string|null', 'default' => 'null', 'description' => 'Nama user (untuk alt text)'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran avatar: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran avatar: xs, sm, md, lg, xl'],
                         ['name' => 'color', 'type' => 'string', 'default' => '\'blue\'', 'description' => 'Warna background inisial: blue, red, green, purple'],
                     ]" />
                 </div>
@@ -246,6 +252,14 @@
                         ['initials' => 'EF'], ['initials' => 'GH'], ['initials' => 'IJ'], ['initials' => 'KL']
                     ]" :max="4" />
                     <p class="text-xs text-gray-500">7 avatars, max 4 shown (+3 overflow)</p>
+                    <div class="mt-3 space-y-2">
+                        <p class="text-xs font-semibold text-gray-600 dark:text-gray-400">Sizes</p>
+                        <x-ui.avatar-group :avatars="[['initials' => 'JD'], ['initials' => 'AB']]" size="xs" />
+                        <x-ui.avatar-group :avatars="[['initials' => 'JD'], ['initials' => 'AB']]" size="sm" />
+                        <x-ui.avatar-group :avatars="[['initials' => 'JD'], ['initials' => 'AB']]" size="md" />
+                        <x-ui.avatar-group :avatars="[['initials' => 'JD'], ['initials' => 'AB']]" size="lg" />
+                        <x-ui.avatar-group :avatars="[['initials' => 'JD'], ['initials' => 'AB']]" size="xl" />
+                    </div>
                 </div>
 
             {{-- Props API --}}
@@ -258,7 +272,7 @@
                     <x-ui.props-table :props="[
                         ['name' => 'avatars', 'type' => 'array', 'default' => '[]', 'description' => 'Array avatar: [\'initials\' => \'JD\', \'src\' => ..., \'name\' => ...]'],
                         ['name' => 'max', 'type' => 'int', 'default' => '5', 'description' => 'Jumlah maksimal avatar yang ditampilkan'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran avatar: sm, md, lg, xl'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran avatar: xs, sm, md, lg, xl'],
                     ]" />
                 </div>
             </div>
@@ -276,6 +290,16 @@
                         <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-gray-600 dark:text-gray-400">Online</span>
                     </x-ui.notification-badge>
                 </div>
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="flex gap-6 items-center">
+                        <x-ui.notification-badge :count="3" size="xs"><span class="text-base">🔔</span></x-ui.notification-badge>
+                        <x-ui.notification-badge :count="3" size="sm"><span class="text-lg">🔔</span></x-ui.notification-badge>
+                        <x-ui.notification-badge :count="3" size="md"><span class="text-xl">🔔</span></x-ui.notification-badge>
+                        <x-ui.notification-badge :count="3" size="lg"><span class="text-2xl">🔔</span></x-ui.notification-badge>
+                        <x-ui.notification-badge :count="3" size="xl"><span class="text-3xl">🔔</span></x-ui.notification-badge>
+                    </div>
+                </div>
 
             {{-- Props API --}}
             <div x-data="{ apiOpen: false }" class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -288,7 +312,7 @@
                         ['name' => 'count', 'type' => 'int|null', 'default' => 'null', 'description' => 'Jumlah notifikasi (99+ ditampilkan)'],
                         ['name' => 'dot', 'type' => 'bool', 'default' => 'false', 'description' => 'Tampilkan dot kecil tanpa angka'],
                         ['name' => 'color', 'type' => 'string', 'default' => '\'red\'', 'description' => 'Warna badge: red, blue, green, yellow, purple, gray'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran badge: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran badge: xs, sm, md, lg, xl'],
                         ['name' => 'position', 'type' => 'string', 'default' => '\'top-right\'', 'description' => 'Posisi: top-right, top-left, bottom-right, bottom-left'],
                     ]" />
                 </div>
@@ -433,7 +457,7 @@
                         ['name' => 'headerImageHeight', 'type' => 'string', 'default' => '\'h-48\'', 'description' => 'Tinggi header image (Tailwind class)'],
                         ['name' => 'variant', 'type' => 'string', 'default' => '\'default\'', 'description' => 'Gaya: default, bordered, elevated, flat'],
                         ['name' => 'hover', 'type' => 'string', 'default' => '\'lift\'', 'description' => 'Efek: lift, glow, scale, border, none'],
-                        ['name' => 'padding', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Padding: none, sm, md, lg'],
+                        ['name' => 'padding', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Padding: none, xs, sm, md, lg, xl'],
                         ['name' => 'footerDivider', 'type' => 'bool', 'default' => 'true', 'description' => 'Divider di atas footer'],
                         ['name' => 'asForm', 'type' => 'bool', 'default' => 'false', 'description' => 'Render card sebagai <form> element'],
                         ['name' => 'action', 'type' => 'string|null', 'default' => 'null', 'description' => 'URL form action (wajib jika asForm=true)'],
@@ -464,6 +488,16 @@
                         <x-ui.tag variant="secondary">📦 Archived</x-ui.tag>
                     </div>
                 </div>
+                <div class="mt-3">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="flex flex-wrap gap-2 items-center">
+                        <x-ui.tag variant="primary" size="xs">XS</x-ui.tag>
+                        <x-ui.tag variant="primary" size="sm">Small</x-ui.tag>
+                        <x-ui.tag variant="primary" size="md">Medium</x-ui.tag>
+                        <x-ui.tag variant="primary" size="lg">Large</x-ui.tag>
+                        <x-ui.tag variant="primary" size="xl">XL</x-ui.tag>
+                    </div>
+                </div>
 
             {{-- Props API --}}
             <div x-data="{ apiOpen: false }" class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -474,7 +508,7 @@
                 <div x-show="apiOpen" x-collapse class="mt-3">
                     <x-ui.props-table :props="[
                         ['name' => 'variant', 'type' => 'string', 'default' => '\'primary\'', 'description' => 'Warna tag: primary, secondary, success, warning, danger'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran tag: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran tag: xs, sm, md, lg, xl'],
                     ]" />
                 </div>
             </div>
@@ -502,6 +536,16 @@
                     <div>
                         <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Custom Platforms</p>
                         <x-ui.share-button :platforms="['linkedin', 'facebook', 'twitter']" variant="minimal" url="https://bacadev.test" title="BacaDev" />
+                    </div>
+                    <div>
+                        <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <x-ui.share-button variant="minimal" size="xs" url="https://bacadev.test" title="BacaDev" />
+                            <x-ui.share-button variant="minimal" size="sm" url="https://bacadev.test" title="BacaDev" />
+                            <x-ui.share-button variant="minimal" size="md" url="https://bacadev.test" title="BacaDev" />
+                            <x-ui.share-button variant="minimal" size="lg" url="https://bacadev.test" title="BacaDev" />
+                            <x-ui.share-button variant="minimal" size="xl" url="https://bacadev.test" title="BacaDev" />
+                        </div>
                     </div>
                     {{-- Playground --}}
                     <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -553,7 +597,7 @@
                         ['name' => 'platforms', 'type' => 'array', 'default' => '[...]', 'description' => 'Platform: facebook, twitter, whatsapp, telegram, email, copy, linkedin'],
                         ['name' => 'variant', 'type' => 'string', 'default' => '\'inline\'', 'description' => 'Tampilan: inline, dropdown, minimal'],
                         ['name' => 'label', 'type' => 'string', 'default' => '\'Share\'', 'description' => 'Teks label tombol share'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran tombol: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran tombol: xs, sm, md, lg, xl'],
                     ]" />
                 </div>
             </div>
@@ -737,6 +781,14 @@
             <div class="p-6 bg-white dark:bg-gray-800 rounded-lg shadow component-card">
                 <div class="flex items-center justify-between mb-4"><h3 class="font-bold text-gray-900 dark:text-white">Countdown</h3><button onclick="copyCode(this)" data-code='&lt;x-ui.countdown target="2026-12-31" /&gt;' class="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded hover:bg-gray-200 dark:hover:bg-gray-600 transition">📋 Copy</button></div>
                 <x-ui.countdown target="{{ now()->addDays(3)->addHours(5)->addMinutes(23)->format('Y-m-d H:i:s') }}" label="Launching in" size="md" />
+                <div class="mt-3 space-y-3">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400">Sizes</p>
+                    <x-ui.countdown target="{{ now()->addHours(3)->format('Y-m-d H:i:s') }}" size="xs" />
+                    <x-ui.countdown target="{{ now()->addHours(3)->format('Y-m-d H:i:s') }}" size="sm" />
+                    <x-ui.countdown target="{{ now()->addHours(3)->format('Y-m-d H:i:s') }}" size="md" />
+                    <x-ui.countdown target="{{ now()->addHours(3)->format('Y-m-d H:i:s') }}" size="lg" />
+                    <x-ui.countdown target="{{ now()->addHours(3)->format('Y-m-d H:i:s') }}" size="xl" />
+                </div>
 
             {{-- Props API --}}
             <div x-data="{ apiOpen: false }" class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -752,7 +804,7 @@
                         ['name' => 'showHours', 'type' => 'bool', 'default' => 'true', 'description' => 'Tampilkan jam'],
                         ['name' => 'showMinutes', 'type' => 'bool', 'default' => 'true', 'description' => 'Tampilkan menit'],
                         ['name' => 'showSeconds', 'type' => 'bool', 'default' => 'true', 'description' => 'Tampilkan detik'],
-                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: sm, md, lg'],
+                        ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: xs, sm, md, lg, xl'],
                         ['name' => 'variant', 'type' => 'string', 'default' => '\'default\'', 'description' => 'Gaya tampilan: default, minimal, boxes'],
                     ]" />
                 </div>

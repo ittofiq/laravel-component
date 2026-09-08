@@ -44,14 +44,16 @@
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Spinner" component="feedback.spinner" :props="[
-                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: sm, md, lg'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: xs, sm, md, lg, xl'],
                 ['name' => 'color', 'type' => 'string', 'default' => '\'blue\'', 'description' => 'Warna spinner'],
                 ['name' => 'label', 'type' => 'string|null', 'default' => 'null', 'description' => 'Teks di samping spinner'],
             ]">
                 <div class="flex gap-4 items-center">
+                    <x-feedback.spinner size="xs" />
                     <x-feedback.spinner size="sm" />
                     <x-feedback.spinner size="md" />
                     <x-feedback.spinner size="lg" />
+                    <x-feedback.spinner size="xl" />
                     <x-feedback.spinner size="md" color="green" />
                     <x-feedback.spinner size="md" color="red" />
                     <x-feedback.spinner size="md" color="white" />
@@ -69,9 +71,11 @@
                 <x-feedback.skeleton type="text" :count="3" />
                 <x-feedback.skeleton type="image" :width="300" :height="150" class="mt-3" />
                 <div class="flex gap-3 mt-3">
+                    <x-feedback.skeleton type="circle" size="xs" />
                     <x-feedback.skeleton type="circle" size="sm" />
                     <x-feedback.skeleton type="circle" size="md" />
                     <x-feedback.skeleton type="circle" size="lg" />
+                    <x-feedback.skeleton type="circle" size="xl" />
                 </div>
                 <x-feedback.skeleton type="card" :count="1" class="mt-3" />
                 <x-feedback.skeleton type="table-row" :count="3" class="mt-3" />

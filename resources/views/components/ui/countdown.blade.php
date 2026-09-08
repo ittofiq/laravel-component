@@ -15,9 +15,11 @@
     $targetTimestamp = strtotime($targetDate) * 1000;
 
     $sizeClasses = [
+        'xs' => ['unit' => 'text-xl', 'label' => 'text-[10px]'],
         'sm' => ['unit' => 'text-2xl', 'label' => 'text-xs'],
         'md' => ['unit' => 'text-3xl', 'label' => 'text-sm'],
         'lg' => ['unit' => 'text-5xl', 'label' => 'text-base'],
+        'xl' => ['unit' => 'text-6xl', 'label' => 'text-lg'],
     ];
     $size = $sizeClasses[$size] ?? $sizeClasses['md'];
 @endphp

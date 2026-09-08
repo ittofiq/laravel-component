@@ -15,12 +15,14 @@
 
 @php
     $sizes = [
+        'xs' => 'w-6 h-6 text-[10px]',
         'sm' => 'w-8 h-8 text-xs',
         'md' => 'w-10 h-10 text-sm',
         'lg' => 'w-14 h-14 text-lg',
         'xl' => 'w-20 h-20 text-2xl',
     ];
     $statusSizes = [
+        'xs' => 'w-2 h-2',
         'sm' => 'w-2.5 h-2.5',
         'md' => 'w-3 h-3',
         'lg' => 'w-3.5 h-3.5',

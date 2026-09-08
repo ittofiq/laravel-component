@@ -13,9 +13,11 @@
 
     // Size presets
     $sizes = [
+        'xs' => ['text_h' => 'h-2', 'text_w' => 'w-full', 'circle' => 'w-6 h-6', 'image_w' => 'w-full', 'image_h' => 'h-24'],
         'sm' => ['text_h' => 'h-3', 'text_w' => 'w-full', 'circle' => 'w-8 h-8', 'image_w' => 'w-full', 'image_h' => 'h-32'],
         'md' => ['text_h' => 'h-4', 'text_w' => 'w-full', 'circle' => 'w-12 h-12', 'image_w' => 'w-full', 'image_h' => 'h-48'],
         'lg' => ['text_h' => 'h-5', 'text_w' => 'w-full', 'circle' => 'w-16 h-16', 'image_w' => 'w-full', 'image_h' => 'h-64'],
+        'xl' => ['text_h' => 'h-6', 'text_w' => 'w-full', 'circle' => 'w-20 h-20', 'image_w' => 'w-full', 'image_h' => 'h-80'],
     ];
 
     $sizeConfig = $sizes[$size] ?? $sizes['md'];

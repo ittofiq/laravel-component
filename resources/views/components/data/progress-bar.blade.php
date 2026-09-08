@@ -13,6 +13,7 @@
     $clampedPercent = max(0, min(100, (int) $percent));
 
     $sizeClasses = [
+        'xs' => 'h-1',
         'sm' => 'h-1.5',
         'md' => 'h-2.5',
         'lg' => 'h-4',

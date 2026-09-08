@@ -25,9 +25,11 @@
     ];
 
     $sizeClasses = [
+        'xs' => 'w-6 h-6 text-xs',
         'sm' => 'w-8 h-8 text-sm',
         'md' => 'w-10 h-10 text-base',
         'lg' => 'w-12 h-12 text-lg',
+        'xl' => 'w-14 h-14 text-xl',
     ];
     $sizeClass = $sizeClasses[$size] ?? $sizeClasses['md'];
 @endphp

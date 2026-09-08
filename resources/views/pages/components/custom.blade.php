@@ -9,14 +9,16 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
 
             <x-ui.demo-card title="Loader" component="custom.loader" :props="[
-                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: sm, md, lg'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: xs, sm, md, lg, xl'],
                 ['name' => 'text', 'type' => 'string|null', 'default' => 'null', 'description' => 'Teks keterangan yang tampil di samping spinner'],
             ]">
                 <x-custom.loader size="md" text="Loading..." />
                 <div class="flex gap-3 mt-3">
+                    <x-custom.loader size="xs" />
                     <x-custom.loader size="sm" />
                     <x-custom.loader size="md" />
                     <x-custom.loader size="lg" />
+                    <x-custom.loader size="xl" />
                 </div>
             </x-ui.demo-card>
 
@@ -24,13 +26,23 @@
                 ['name' => 'rating', 'type' => 'int', 'default' => '0', 'description' => 'Jumlah bintang terisi'],
                 ['name' => 'maxStars', 'type' => 'int', 'default' => '5', 'description' => 'Total bintang'],
                 ['name' => 'interactive', 'type' => 'bool', 'default' => 'false', 'description' => 'Bila true, bintang bisa diklik'],
-                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: sm, md, lg'],
+                ['name' => 'size', 'type' => 'string', 'default' => '\'md\'', 'description' => 'Ukuran: xs, sm, md, lg, xl'],
             ]">
                 <x-custom.rating-stars :rating="4" :max-stars="5" />
                 <x-custom.rating-stars :rating="3.5" :max-stars="5" class="mt-2" />
                 <x-custom.rating-stars :rating="5" :max-stars="5" class="mt-2" />
                 <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 font-medium">Interactive — klik bintang untuk memilih:</p>
                 <x-custom.rating-stars interactive class="mt-2" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-custom.rating-stars :rating="4" size="xs" />
+                        <x-custom.rating-stars :rating="4" size="sm" />
+                        <x-custom.rating-stars :rating="4" size="md" />
+                        <x-custom.rating-stars :rating="4" size="lg" />
+                        <x-custom.rating-stars :rating="4" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Shopping Cart" component="custom.shopping-cart" :props="[

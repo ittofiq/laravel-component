@@ -13,6 +13,7 @@
     $uniqueId = 'rating-' . uniqid();
 
     $sizeClasses = [
+        'xs' => 'w-4 h-4',
         'sm' => 'w-5 h-5',
         'md' => 'w-7 h-7',
         'lg' => 'w-9 h-9',
