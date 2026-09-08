@@ -23,6 +23,22 @@
         'xl' => 'px-5 py-3 text-xl',
         default => 'px-4 py-2 text-base',
     };
+    $textClass = match($size) {
+        'xs' => 'text-xs',
+        'sm' => 'text-sm',
+        'md' => 'text-base',
+        'lg' => 'text-lg',
+        'xl' => 'text-xl',
+        default => 'text-base',
+    };
+    $optionPadding = match($size) {
+        'xs' => 'px-2 py-1',
+        'sm' => 'px-2.5 py-1.5',
+        'md' => 'px-4 py-2',
+        'lg' => 'px-4 py-2.5',
+        'xl' => 'px-5 py-3',
+        default => 'px-4 py-2',
+    };
 @endphp
 
 <div class="flex flex-col gap-2">
@@ -91,7 +107,7 @@
                             @keydown.arrow-up="highlightPrev()"
                             @keydown.enter="selectHighlighted()"
                             @keydown.escape="isOpen = false"
-                            class="w-full px-3 py-1.5 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+                            class="w-full px-3 py-1.5 rounded border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white {{ $textClass }}"
                             @focus="searchFocused = true"
                         />
                     </div>
@@ -104,7 +120,7 @@
                             type="button"
                             @click.stop="selectOption(value)"
                             @mouseenter="highlightedIdx = idx"
-                            class="w-full text-left px-4 py-2 text-gray-900 dark:text-white transition-colors
+                            class="w-full text-left {{ $optionPadding }} {{ $textClass }} text-gray-900 dark:text-white transition-colors
                                 {{ $searchable ? 'hover:bg-blue-50 dark:hover:bg-blue-900/30' : 'hover:bg-gray-50 dark:hover:bg-gray-700' }}"
                             :class="{'bg-blue-100 dark:bg-blue-900/20 font-semibold': selectedValue === value, 'bg-blue-50 dark:bg-blue-900/10': highlightedIdx === idx}"
                         >

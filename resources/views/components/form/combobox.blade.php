@@ -20,6 +20,22 @@
         'xl' => 'px-5 py-3 text-xl',
         default => 'px-4 py-2 text-base',
     };
+    $textClass = match($size) {
+        'xs' => 'text-xs',
+        'sm' => 'text-sm',
+        'md' => 'text-base',
+        'lg' => 'text-lg',
+        'xl' => 'text-xl',
+        default => 'text-base',
+    };
+    $optionPadding = match($size) {
+        'xs' => 'px-2 py-1',
+        'sm' => 'px-2.5 py-1.5',
+        'md' => 'px-4 py-2',
+        'lg' => 'px-4 py-2.5',
+        'xl' => 'px-5 py-3',
+        default => 'px-4 py-2',
+    };
     $uniqueId = 'combobox-' . uniqid();
     $optionsJson = json_encode(array_values($options));
 @endphp
@@ -81,7 +97,7 @@
                     @click="selectOption(option)"
                     @mouseenter="highlighted = index"
                     type="button"
-                    class="w-full text-left px-4 py-2.5 text-sm transition-colors"
+                    class="w-full text-left {{ $optionPadding }} {{ $textClass }} transition-colors"
                     :class="{
                         'bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300': highlighted === index,
                         'text-gray-700 dark:text-gray-300': highlighted !== index

@@ -19,6 +19,22 @@
         'xl' => 'px-5 py-3 text-xl',
         default => 'px-3 py-2 text-base',
     };
+    $textClass = match($size) {
+        'xs' => 'text-xs',
+        'sm' => 'text-sm',
+        'md' => 'text-base',
+        'lg' => 'text-lg',
+        'xl' => 'text-xl',
+        default => 'text-base',
+    };
+    $optionPadding = match($size) {
+        'xs' => 'px-2 py-1',
+        'sm' => 'px-2.5 py-1.5',
+        'md' => 'px-4 py-2',
+        'lg' => 'px-4 py-2.5',
+        'xl' => 'px-5 py-3',
+        default => 'px-4 py-2',
+    };
     $optionsJson = json_encode($options);
 @endphp
 
@@ -69,7 +85,7 @@
             <template x-for="(text, value) in filteredOptions" :key="value">
                 <div
                     @click.stop="toggleItem(value)"
-                    class="px-4 py-2 cursor-pointer text-gray-900 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/30"
+                    class="{{ $optionPadding }} {{ $textClass }} cursor-pointer text-gray-900 dark:text-white hover:bg-blue-50 dark:hover:bg-blue-900/30"
                     :class="selected.includes(value) ? 'bg-blue-100 dark:bg-blue-900/20 font-semibold' : ''"
                 >
                     <span x-text="text"></span>
