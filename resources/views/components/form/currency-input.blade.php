@@ -16,10 +16,10 @@
     $sizeClass = match($size) {
         'xs' => 'py-1 text-xs',
         'sm' => 'py-1.5 text-sm',
-        'md' => 'py-2 text-sm',
-        'lg' => 'py-2.5 text-base',
-        'xl' => 'py-3 text-lg',
-        default => 'py-2 text-sm',
+        'md' => 'py-2 text-base',
+        'lg' => 'py-2.5 text-lg',
+        'xl' => 'py-3 text-xl',
+        default => 'py-2 text-base',
     };
     $uniqueId = 'currency-' . uniqid();
     $currencies = [

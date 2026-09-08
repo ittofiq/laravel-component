@@ -15,10 +15,10 @@
     $sizeClass = match($size) {
         'xs' => 'pb-1 text-xs',
         'sm' => 'pb-1.5 text-sm',
-        'md' => 'pb-2 text-sm',
-        'lg' => 'pb-2.5 text-base',
-        'xl' => 'pb-3 text-lg',
-        default => 'pb-2 text-sm',
+        'md' => 'pb-2 text-base',
+        'lg' => 'pb-2.5 text-lg',
+        'xl' => 'pb-3 text-xl',
+        default => 'pb-2 text-base',
     };
     $uniqueId = 'fl-' . uniqid();
 @endphp

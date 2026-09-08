@@ -13,10 +13,10 @@
     $sizeClass = match($size) {
         'xs' => 'px-2 py-1 text-xs',
         'sm' => 'px-2.5 py-1.5 text-sm',
-        'md' => 'px-3 py-2 text-sm',
-        'lg' => 'px-4 py-2.5 text-base',
-        'xl' => 'px-5 py-3 text-lg',
-        default => 'px-3 py-2 text-sm',
+        'md' => 'px-3 py-2 text-base',
+        'lg' => 'px-4 py-2.5 text-lg',
+        'xl' => 'px-5 py-3 text-xl',
+        default => 'px-3 py-2 text-base',
     };
     $uniqueId = 'colorpicker-' . uniqid();
 @endphp

@@ -124,6 +124,16 @@
             ]">
                 <x-form.password-input name="password" label="Password" />
                 <x-form.password-input name="err" label="Error State" error="Password minimal 8 karakter" class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.password-input name="p_xs" placeholder="Extra small" size="xs" />
+                        <x-form.password-input name="p_sm" placeholder="Small" size="sm" />
+                        <x-form.password-input name="p_md" placeholder="Medium" size="md" />
+                        <x-form.password-input name="p_lg" placeholder="Large" size="lg" />
+                        <x-form.password-input name="p_xl" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="OTP Input" component="form.otp-input" :props="[
@@ -146,6 +156,16 @@
                 <x-form.input-group name="url" label="URL" prefix="https://" placeholder="example.com" />
                 <x-form.input-group name="price" label="Price" prefix="$" suffix=".00" placeholder="0" class="mt-3" />
                 <x-form.input-group name="email" label="Email" suffixIcon="📧" placeholder="your@email.com" class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.input-group name="ig_xs" prefix="@" placeholder="Extra small" size="xs" />
+                        <x-form.input-group name="ig_sm" prefix="@" placeholder="Small" size="sm" />
+                        <x-form.input-group name="ig_md" prefix="@" placeholder="Medium" size="md" />
+                        <x-form.input-group name="ig_lg" prefix="@" placeholder="Large" size="lg" />
+                        <x-form.input-group name="ig_xl" prefix="@" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Floating Label" component="form.floating-label" :props="[
@@ -157,6 +177,16 @@
                 <x-form.floating-label name="email" label="Email Address" type="email" />
                 <x-form.floating-label name="password" label="Password" type="password" class="mt-4" />
                 <x-form.floating-label name="username" label="Username" :required="true" class="mt-4" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.floating-label name="fl_xs" label="Extra small" size="xs" />
+                        <x-form.floating-label name="fl_sm" label="Small" size="sm" />
+                        <x-form.floating-label name="fl_md" label="Medium" size="md" />
+                        <x-form.floating-label name="fl_lg" label="Large" size="lg" />
+                        <x-form.floating-label name="fl_xl" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Range Slider" component="form.range-slider" :props="[
@@ -202,6 +232,16 @@
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.date-picker name="birthdate" label="Tanggal Lahir" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.date-picker name="dp_xs" label="Extra small" size="xs" />
+                        <x-form.date-picker name="dp_sm" label="Small" size="sm" />
+                        <x-form.date-picker name="dp_md" label="Medium" size="md" />
+                        <x-form.date-picker name="dp_lg" label="Large" size="lg" />
+                        <x-form.date-picker name="dp_xl" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Auto-Complete" component="form.auto-complete" :props="[
@@ -212,6 +252,16 @@
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.auto-complete name="language" :options="['JavaScript', 'Python', 'PHP', 'Java', 'Go', 'Rust', 'TypeScript']" label="Language" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.auto-complete name="ac_xs" :options="['Option A']" label="Extra small" size="xs" />
+                        <x-form.auto-complete name="ac_sm" :options="['Option A']" label="Small" size="sm" />
+                        <x-form.auto-complete name="ac_md" :options="['Option A']" label="Medium" size="md" />
+                        <x-form.auto-complete name="ac_lg" :options="['Option A']" label="Large" size="lg" />
+                        <x-form.auto-complete name="ac_xl" :options="['Option A']" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Chip Input" component="form.chip-input" :props="[
@@ -222,6 +272,16 @@
                 ['name' => 'placeholder', 'type' => 'string', 'default' => '—'],
             ]">
                 <x-form.chip-input name="tags" label="Tags" placeholder="Add tag..." :maxChips="5" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.chip-input name="ci_xs" placeholder="Extra small" size="xs" />
+                        <x-form.chip-input name="ci_sm" placeholder="Small" size="sm" />
+                        <x-form.chip-input name="ci_md" placeholder="Medium" size="md" />
+                        <x-form.chip-input name="ci_lg" placeholder="Large" size="lg" />
+                        <x-form.chip-input name="ci_xl" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Multi-Select" component="form.multi-select" :props="[
@@ -232,6 +292,16 @@
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.multi-select name="skills" label="Skills" :options="['js' => 'JavaScript', 'php' => 'PHP', 'python' => 'Python']" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.multi-select name="ms_xs" :options="['a' => 'Option A']" placeholder="Extra small" size="xs" />
+                        <x-form.multi-select name="ms_sm" :options="['a' => 'Option A']" placeholder="Small" size="sm" />
+                        <x-form.multi-select name="ms_md" :options="['a' => 'Option A']" placeholder="Medium" size="md" />
+                        <x-form.multi-select name="ms_lg" :options="['a' => 'Option A']" placeholder="Large" size="lg" />
+                        <x-form.multi-select name="ms_xl" :options="['a' => 'Option A']" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Color Picker" component="form.color-picker" :props="[
@@ -241,6 +311,16 @@
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.color-picker name="color" label="Pick Color" value="#3B82F6" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.color-picker name="cp_xs" label="Extra small" size="xs" />
+                        <x-form.color-picker name="cp_sm" label="Small" size="sm" />
+                        <x-form.color-picker name="cp_md" label="Medium" size="md" />
+                        <x-form.color-picker name="cp_lg" label="Large" size="lg" />
+                        <x-form.color-picker name="cp_xl" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="File Upload" component="form.file-upload" :props="[
@@ -259,6 +339,16 @@
                 ['name' => 'suggestions', 'type' => 'array', 'default' => '[]'],
             ]">
                 <x-form.search-input name="search" label="Search" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.search-input name="si_xs" placeholder="Extra small" size="xs" />
+                        <x-form.search-input name="si_sm" placeholder="Small" size="sm" />
+                        <x-form.search-input name="si_md" placeholder="Medium" size="md" />
+                        <x-form.search-input name="si_lg" placeholder="Large" size="lg" />
+                        <x-form.search-input name="si_xl" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Combobox" component="form.combobox" :props="[
@@ -269,6 +359,16 @@
                 ['name' => 'required', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.combobox name="category" label="Category" :options="['Design', 'Development', 'Marketing', 'Sales']" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.combobox name="cb_xs" :options="['Option A']" label="Extra small" size="xs" />
+                        <x-form.combobox name="cb_sm" :options="['Option A']" label="Small" size="sm" />
+                        <x-form.combobox name="cb_md" :options="['Option A']" label="Medium" size="md" />
+                        <x-form.combobox name="cb_lg" :options="['Option A']" label="Large" size="lg" />
+                        <x-form.combobox name="cb_xl" :options="['Option A']" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Form Wizard" component="form.form-wizard" :props="[
@@ -294,6 +394,16 @@
                 ['name' => 'locale', 'type' => 'string', 'default' => '\'id-ID\''],
             ]">
                 <x-form.currency-input name="price" label="Harga (IDR)" currency="IDR" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.currency-input name="cu_xs" placeholder="0" size="xs" />
+                        <x-form.currency-input name="cu_sm" placeholder="0" size="sm" />
+                        <x-form.currency-input name="cu_md" placeholder="0" size="md" />
+                        <x-form.currency-input name="cu_lg" placeholder="0" size="lg" />
+                        <x-form.currency-input name="cu_xl" placeholder="0" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Phone Input" component="form.phone-input" :props="[
@@ -304,6 +414,16 @@
                 ['name' => 'disabled', 'type' => 'bool', 'default' => 'false'],
             ]">
                 <x-form.phone-input name="phone" label="Phone Number" placeholder="81234567890" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.phone-input name="ph_xs" placeholder="Extra small" size="xs" />
+                        <x-form.phone-input name="ph_sm" placeholder="Small" size="sm" />
+                        <x-form.phone-input name="ph_md" placeholder="Medium" size="md" />
+                        <x-form.phone-input name="ph_lg" placeholder="Large" size="lg" />
+                        <x-form.phone-input name="ph_xl" placeholder="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Date & Time Input" component="form.date-input" :props="[
@@ -314,6 +434,16 @@
                 <x-form.date-input name="date" label="Date" />
                 <x-form.time-input name="time" label="Time" class="mt-3" />
                 <x-form.datetime-input name="datetime" label="DateTime" class="mt-3" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.date-input name="d_xs" label="Extra small" size="xs" />
+                        <x-form.date-input name="d_sm" label="Small" size="sm" />
+                        <x-form.date-input name="d_md" label="Medium" size="md" />
+                        <x-form.date-input name="d_lg" label="Large" size="lg" />
+                        <x-form.date-input name="d_xl" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
         </div>

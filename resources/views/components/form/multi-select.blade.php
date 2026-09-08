@@ -14,10 +14,10 @@
     $sizeClass = match($size) {
         'xs' => 'px-2 py-1 text-xs',
         'sm' => 'px-2.5 py-1.5 text-sm',
-        'md' => 'px-3 py-2 text-sm',
-        'lg' => 'px-4 py-2.5 text-base',
-        'xl' => 'px-5 py-3 text-lg',
-        default => 'px-3 py-2 text-sm',
+        'md' => 'px-3 py-2 text-base',
+        'lg' => 'px-4 py-2.5 text-lg',
+        'xl' => 'px-5 py-3 text-xl',
+        default => 'px-3 py-2 text-base',
     };
     $optionsJson = json_encode($options);
 @endphp
@@ -43,7 +43,7 @@
             <!-- Tags -->
             <div class="flex flex-wrap gap-2 mb-1">
                 <template x-for="val in selected" :key="val">
-                    <div class="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded text-sm">
+                    <div class="inline-flex items-center gap-1 px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded">
                         <span x-text="options[val] || val"></span>
                         <button type="button" @click.stop="removeItem(val)" class="ml-1 hover:text-blue-600">✕</button>
                     </div>
@@ -57,7 +57,7 @@
                     @input="updateFiltered"
                     @focus="open = true"
                     @keydown.escape="open = false"
-                    class="flex-1 min-w-32 bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-500 text-sm"
+                    class="flex-1 min-w-32 bg-transparent outline-none text-gray-900 dark:text-white placeholder-gray-500"
                     {{ $disabled ? 'disabled' : '' }}
                 />
             </div>

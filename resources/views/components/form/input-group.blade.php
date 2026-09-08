@@ -19,10 +19,10 @@
     $sizeClass = match($size) {
         'xs' => 'px-2 py-1 text-xs',
         'sm' => 'px-2.5 py-1.5 text-sm',
-        'md' => 'px-4 py-2 text-sm',
-        'lg' => 'px-4 py-2.5 text-base',
-        'xl' => 'px-5 py-3 text-lg',
-        default => 'px-4 py-2 text-sm',
+        'md' => 'px-4 py-2 text-base',
+        'lg' => 'px-4 py-2.5 text-lg',
+        'xl' => 'px-5 py-3 text-xl',
+        default => 'px-4 py-2 text-base',
     };
     $baseInput = "w-full {$sizeClass} bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed";
     $borderClass = $error

@@ -15,10 +15,18 @@
     $sizeClass = match($size) {
         'xs' => 'px-2 py-1 text-xs',
         'sm' => 'px-2.5 py-1.5 text-sm',
-        'md' => 'px-4 py-2 text-sm',
-        'lg' => 'px-4 py-2.5 text-base',
-        'xl' => 'px-5 py-3 text-lg',
-        default => 'px-4 py-2 text-sm',
+        'md' => 'px-4 py-2 text-base',
+        'lg' => 'px-4 py-2.5 text-lg',
+        'xl' => 'px-5 py-3 text-xl',
+        default => 'px-4 py-2 text-base',
+    };
+    $textClass = match($size) {
+        'xs' => 'text-xs',
+        'sm' => 'text-sm',
+        'md' => 'text-base',
+        'lg' => 'text-lg',
+        'xl' => 'text-xl',
+        default => 'text-base',
     };
     $uniqueId = 'phone-' . uniqid();
     $countries = [
@@ -54,7 +62,7 @@
             <button
                 type="button"
                 @click="open = !open"
-                class="h-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white flex items-center gap-1.5 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors text-sm"
+                class="h-full px-3 py-2.5 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white flex items-center gap-1.5 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors {{ $textClass }}"
                 {{ $disabled ? 'disabled' : '' }}
             >
                 <span x-text="selectedCountry.flag"></span>
