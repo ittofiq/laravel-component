@@ -90,6 +90,21 @@
                 <x-form.checkbox name="agree" label="I agree to terms" />
                 <x-form.radio name="choice" value="yes" label="Yes" class="mt-3" />
                 <x-form.radio name="choice" value="no" label="No" class="mt-1" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <x-form.checkbox name="cb_xs" label="Extra small" size="xs" />
+                        <x-form.radio name="rd_xs" value="xs" label="Extra small" size="xs" />
+                        <x-form.checkbox name="cb_sm" label="Small" size="sm" />
+                        <x-form.radio name="rd_sm" value="sm" label="Small" size="sm" />
+                        <x-form.checkbox name="cb_md" label="Medium" size="md" />
+                        <x-form.radio name="rd_md" value="md" label="Medium" size="md" />
+                        <x-form.checkbox name="cb_lg" label="Large" size="lg" />
+                        <x-form.radio name="rd_lg" value="lg" label="Large" size="lg" />
+                        <x-form.checkbox name="cb_xl" label="Extra large" size="xl" />
+                        <x-form.radio name="rd_xl" value="xl" label="Extra large" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Toggle / Switch" component="form.toggle" :props="[
@@ -143,6 +158,16 @@
                 ['name' => 'error', 'type' => 'string|null', 'default' => 'null'],
             ]">
                 <x-form.otp-input name="code" label="Verification Code" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-3">
+                        <x-form.otp-input name="o_xs" size="xs" />
+                        <x-form.otp-input name="o_sm" size="sm" />
+                        <x-form.otp-input name="o_md" size="md" />
+                        <x-form.otp-input name="o_lg" size="lg" />
+                        <x-form.otp-input name="o_xl" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Input Group" component="form.input-group" :props="[
@@ -200,6 +225,16 @@
             ]">
                 <x-form.range-slider name="volume" label="Volume" :value="65" />
                 <x-form.range-slider name="price" label="Price Range" :values="[25, 75]" :min="0" :max="100" class="mt-4" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-3">
+                        <x-form.range-slider name="rs_xs" label="Extra small" :value="50" size="xs" />
+                        <x-form.range-slider name="rs_sm" label="Small" :value="50" size="sm" />
+                        <x-form.range-slider name="rs_md" label="Medium" :value="50" size="md" />
+                        <x-form.range-slider name="rs_lg" label="Large" :value="50" size="lg" />
+                        <x-form.range-slider name="rs_xl" label="Extra large" :value="50" size="xl" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Rating Input" component="form.rating-input" :props="[
@@ -385,6 +420,16 @@
                 ['name' => 'placeholder', 'type' => 'string', 'default' => '\'Ketik di sini...\''],
             ]">
                 <x-form.rich-text-editor name="content" label="Content" />
+                <div class="mt-4">
+                    <p class="text-xs font-semibold text-gray-600 dark:text-gray-400 mb-2">Sizes</p>
+                    <div class="space-y-2">
+                        <x-form.rich-text-editor name="rte_xs" label="Extra small" size="xs" :rows="2" />
+                        <x-form.rich-text-editor name="rte_sm" label="Small" size="sm" :rows="2" />
+                        <x-form.rich-text-editor name="rte_md" label="Medium" size="md" :rows="2" />
+                        <x-form.rich-text-editor name="rte_lg" label="Large" size="lg" :rows="2" />
+                        <x-form.rich-text-editor name="rte_xl" label="Extra large" size="xl" :rows="2" />
+                    </div>
+                </div>
             </x-ui.demo-card>
 
             <x-ui.demo-card title="Currency Input" component="form.currency-input" :props="[

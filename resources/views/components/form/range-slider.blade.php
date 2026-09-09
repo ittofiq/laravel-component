@@ -11,10 +11,43 @@
     'showMinMax' => false,
     'color' => 'blue',
     'disabled' => false,
+    'size' => 'md',
 ])
 
 @php
     $uniqueId = 'range-' . uniqid();
+    $sizeClass = match($size) {
+        'xs' => 'h-1',
+        'sm' => 'h-1.5',
+        'md' => 'h-2',
+        'lg' => 'h-3',
+        'xl' => 'h-4',
+        default => 'h-2',
+    };
+    $textClass = match($size) {
+        'xs' => 'text-xs',
+        'sm' => 'text-sm',
+        'md' => 'text-base',
+        'lg' => 'text-lg',
+        'xl' => 'text-xl',
+        default => 'text-base',
+    };
+    $thumbWebkitClass = match($size) {
+        'xs' => '[&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3',
+        'sm' => '[&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4',
+        'md' => '[&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5',
+        'lg' => '[&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6',
+        'xl' => '[&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7',
+        default => '[&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5',
+    };
+    $thumbMozClass = match($size) {
+        'xs' => '[&::-moz-range-thumb]:w-3 [&::-moz-range-thumb]:h-3',
+        'sm' => '[&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4',
+        'md' => '[&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5',
+        'lg' => '[&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6',
+        'xl' => '[&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7',
+        default => '[&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5',
+    };
     $initialValue = $value ?? $min;
     $isDual = $values !== null;
     $initialMin = $isDual ? ($values[0] ?? $min) : $min;
@@ -34,7 +67,7 @@
         <div class="flex justify-between items-center">
             <label class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ $label }}</label>
             @if($showValue)
-                <span class="text-sm font-bold text-{{ $color === 'blue' ? 'blue' : $color }}-600 dark:text-{{ $color === 'blue' ? 'blue' : $color }}-400">
+                <span class="{{ $textClass }} font-bold text-{{ $color === 'blue' ? 'blue' : $color }}-600 dark:text-{{ $color === 'blue' ? 'blue' : $color }}-400">
                     <span x-text="{{ $isDual ? 'minVal' : 'value' }}"></span>
                     @if($isDual)
                         <span> - </span>
@@ -50,13 +83,13 @@
             {{-- Dual Handle --}}
             <div class="relative h-7 flex items-center">
                 {{-- Background track --}}
-                <div class="absolute w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full"></div>
+                <div class="absolute w-full {{ $sizeClass }} bg-gray-200 dark:bg-gray-600 rounded-full"></div>
                 {{-- Active track --}}
-                <div class="absolute h-2 rounded-full {{ $selectedColor['track'] }}" :style="'left: ' + ((minVal - {{ $min }}) / ({{ $max }} - {{ $min }}) * 100) + '%; right: ' + (100 - ((maxVal - {{ $min }}) / ({{ $max }} - {{ $min }}) * 100)) + '%'"></div>
+                <div class="absolute {{ $sizeClass }} rounded-full {{ $selectedColor['track'] }}" :style="'left: ' + ((minVal - {{ $min }}) / ({{ $max }} - {{ $min }}) * 100) + '%; right: ' + (100 - ((maxVal - {{ $min }}) / ({{ $max }} - {{ $min }}) * 100)) + '%'"></div>
                 {{-- Min handle --}}
-                <input type="range" x-ref="minHandle" @input="setMinVal($event)" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" class="absolute w-full h-2 appearance-none bg-transparent pointer-events-none z-[1] [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-webkit-slider-thumb]:hover:scale-125 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab" {{ $disabled ? 'disabled' : '' }}>
+                <input type="range" x-ref="minHandle" @input="setMinVal($event)" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" class="absolute w-full {{ $sizeClass }} appearance-none bg-transparent pointer-events-none z-[1] [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none {{ $thumbWebkitClass }} [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-webkit-slider-thumb]:hover:scale-125 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none {{ $thumbMozClass }} [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab" {{ $disabled ? 'disabled' : '' }}>
                 {{-- Max handle --}}
-                <input type="range" x-ref="maxHandle" @input="setMaxVal($event)" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" class="absolute w-full h-2 appearance-none bg-transparent pointer-events-none z-[2] [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-webkit-slider-thumb]:hover:scale-125 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-6 [&::-moz-range-thumb]:h-6 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab" {{ $disabled ? 'disabled' : '' }}>
+                <input type="range" x-ref="maxHandle" @input="setMaxVal($event)" min="{{ $min }}" max="{{ $max }}" step="{{ $step }}" class="absolute w-full {{ $sizeClass }} appearance-none bg-transparent pointer-events-none z-[2] [&::-webkit-slider-thumb]:pointer-events-auto [&::-webkit-slider-thumb]:appearance-none {{ $thumbWebkitClass }} [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white [&::-webkit-slider-thumb]:shadow-md [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-webkit-slider-thumb]:hover:scale-125 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:pointer-events-auto [&::-moz-range-thumb]:appearance-none {{ $thumbMozClass }} [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-blue-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-white [&::-moz-range-thumb]:shadow-md [&::-moz-range-thumb]:cursor-grab" {{ $disabled ? 'disabled' : '' }}>
             </div>
             <input type="hidden" name="{{ $name }}_min" :value="minVal">
             <input type="hidden" name="{{ $name }}_max" :value="maxVal">
@@ -70,7 +103,7 @@
                     max="{{ $max }}"
                     step="{{ $step }}"
                     name="{{ $name }}"
-                    class="w-full h-2 bg-gray-200 dark:bg-gray-600 rounded-full appearance-none cursor-pointer accent-blue-500 [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-blue-500 [&::-webkit-slider-thumb]:shadow [&::-webkit-slider-thumb]:cursor-pointer"
+                    class="w-full {{ $sizeClass }} bg-gray-200 dark:bg-gray-600 rounded-full appearance-none cursor-pointer {{ $thumbWebkitClass }} [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-white [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-blue-500 [&::-webkit-slider-thumb]:shadow [&::-webkit-slider-thumb]:cursor-pointer {{ $thumbMozClass }} [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-white [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-blue-500 [&::-moz-range-thumb]:shadow [&::-moz-range-thumb]:cursor-pointer"
                     {{ $disabled ? 'disabled' : '' }}
                 />
                 {{-- Tick marks --}}

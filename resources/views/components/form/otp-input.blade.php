@@ -5,9 +5,20 @@
     'length' => 6,
     'error' => null,
     'disabled' => false,
+    'size' => 'md',
 ])
 
-@php $uniqueId = 'otp-' . uniqid(); @endphp
+@php
+    $uniqueId = 'otp-' . uniqid();
+    $sizeClass = match($size) {
+        'xs' => 'w-8 h-10 text-base',
+        'sm' => 'w-9 h-12 text-lg',
+        'md' => 'w-11 h-14 text-xl',
+        'lg' => 'w-12 h-16 text-2xl',
+        'xl' => 'w-14 h-20 text-3xl',
+        default => 'w-11 h-14 text-xl',
+    };
+@endphp
 
 <div class="flex flex-col gap-2" x-data="otpInput({{ $length }}, '{{ $name }}')">
     @if($label)
@@ -24,7 +35,7 @@
                 @keydown.backspace="handleBackspace($event, {{ $i }})"
                 @paste="handlePaste($event)"
                 @focus="$event.target.select()"
-                class="w-11 h-14 sm:w-12 sm:h-14 text-center text-xl font-bold rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white {{ $error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500' }} {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
+                class="{{ $sizeClass }} text-center font-bold rounded-lg border transition-colors duration-200 focus:outline-none focus:ring-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-white {{ $error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500 focus:border-blue-500' }} {{ $disabled ? 'opacity-60 cursor-not-allowed' : '' }}"
                 {{ $disabled ? 'disabled' : '' }}
                 {{ $i === 0 ? 'autofocus' : '' }}
                 aria-label="Digit {{ $i + 1 }}"

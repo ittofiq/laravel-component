@@ -5,10 +5,19 @@
     'value' => null,
     'rows' => 10,
     'placeholder' => 'Ketik di sini...',
+    'size' => 'md',
 ])
 
 @php
     $editorId = 'editor-' . uniqid();
+    $sizeClass = match($size) {
+        'xs' => 'px-2 py-1.5 text-xs',
+        'sm' => 'px-2.5 py-2 text-sm',
+        'md' => 'px-4 py-3 text-base',
+        'lg' => 'px-4 py-3.5 text-lg',
+        'xl' => 'px-5 py-4 text-xl',
+        default => 'px-4 py-3 text-base',
+    };
 @endphp
 
 <div class="flex flex-col gap-2">
@@ -56,7 +65,7 @@
             id="{{ $editorId }}"
             contenteditable="true"
             oninput="syncContent('{{ $editorId }}', '{{ $name }}')"
-            class="w-full px-4 py-3 text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none"
+            class="w-full {{ $sizeClass }} text-gray-900 dark:text-white bg-white dark:bg-gray-800 focus:outline-none"
             style="min-height: {{ $rows * 24 }}px"
             placeholder="{{ $placeholder }}"
         >{!! $value !!}</div>
