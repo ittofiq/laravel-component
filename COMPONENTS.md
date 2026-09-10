@@ -617,6 +617,11 @@ Kebanyakan komponen support props berikut:
 
 <!-- Custom Classes -->
 <x-form.input class="custom-class" />
+
+<!-- Size (xs / sm / md / lg / xl) -->
+<x-form.input label="Large" size="lg" />
+<x-form.checkbox label="Agree" size="lg" />
+<x-form.range-slider name="volume" :value="50" size="lg" />
 ```
 
 ---

@@ -4,6 +4,25 @@ Semua perubahan penting di BacaDev Component Library dicatat di file ini.
 
 ---
 
+## [5.5] - September 2026
+
+### ✨ Size Scale (xs/sm/md/lg/xl) pada Form Components
+
+Normalisasi ukuran agar seluruh komponen form konsisten memakai size scale `xs / sm / md / lg / xl`:
+
+- **Text-entry** — Input, Password Input, Textarea, Floating Label, Input Group, Search Input, Phone Input, Currency Input, Date/Time Input, Date Picker — padding & ukuran font
+- **Selection** — Select, Combobox, Auto-Complete, Multi-Select, Chip Input, Color Picker — tinggi control & teks opsi dropdown
+- **Pilihan** — Checkbox, Radio, Toggle, Rating Input — ukuran kontrol + label
+- **Range Slider** — tinggi track, ukuran thumb (pointer), dan teks value
+- **OTP Input** — ukuran kotak & digit
+- **Rich Text Editor** — padding & ukuran font area editor
+
+### 🎨 Demo "Sizes"
+
+- Setiap card demo form kini dilengkapi section **Sizes** dengan 5 varian ukuran.
+
+---
+
 ## [5.4] - September 2026
 
 ### ✨ Kategori Baru: Blog (12 komponen)

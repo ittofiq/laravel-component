@@ -49,7 +49,7 @@ BacaDev Component Library Documentation
 ---
 
 ### 4. **[CHANGELOG.md](CHANGELOG.md)** - Version History
-- Version releases (5.4, 5.3, 5.2, 5.1, 5.0, 4.0, 3.0, 2.0, 1.0)
+- Version releases (5.5, 5.4, 5.3, 5.2, 5.1, 5.0, 4.0, 3.0, 2.0, 1.0)
 - New features per version
 - Bug fixes
 - Migration guides
@@ -113,6 +113,16 @@ BacaDev Component Library Documentation
 2. **For developers**: Jump to COMPONENTS.md for API reference
 3. **For maintenance**: Check CHANGELOG.md for version info
 4. **For troubleshooting**: See INSTALLATION.md Troubleshooting section
+
+---
+
+## 🆕 What's New in v5.5
+
+**Size Scale (xs/sm/md/lg/xl) pada Form Components:**
+- Semua komponen form kini konsisten memakai size scale `xs / sm / md / lg / xl`
+- Demo "Sizes" di setiap card form components
+
+→ See more in [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
