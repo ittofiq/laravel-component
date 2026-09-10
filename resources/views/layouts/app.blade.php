@@ -23,13 +23,13 @@
     <title>@yield('title', 'BacaDev - Component Library')</title>
     @vite(['resources/css/app.css', 'resources/js/app.ts'])
 </head>
-<body class="bg-gray-50 dark:bg-gray-900" x-data="darkMode()" @keydown.window="handleShortcut($event)">
+<body class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900" style="min-height:100vh;display:flex;flex-direction:column;" x-data="darkMode()" @keydown.window="handleShortcut($event)">
     {{-- Skip to content --}}
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[99999] focus:px-4 focus:py-2 focus:bg-white dark:focus:bg-gray-800 focus:border focus:border-blue-500 focus:rounded-lg focus:shadow-lg focus:text-blue-700 dark:focus:text-blue-300 focus:outline-none">
         Skip to content
     </a>
 
-    <main id="main-content">
+    <main id="main-content" class="flex-1 flex flex-col" style="flex:1 1 0%;display:flex;flex-direction:column;">
         @yield('content')
     </main>
 

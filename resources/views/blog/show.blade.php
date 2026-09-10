@@ -34,7 +34,7 @@
                 category="Laravel"
                 author="Andi Wijaya"
                 date="12 Agustus 2026"
-                readTime="6 menit"
+                readTime="6"
                 :views="'1.2K'"
                 :tags="['Laravel', 'PHP', 'Web Development']"
             >
@@ -98,10 +98,12 @@ php artisan serve</pre>
     description="Software house yang membantu bisnis tumbuh lewat produk digital."
     :links="[
         ['title' => 'Produk', 'items' => [['label' => 'Beranda', 'href' => '/software-house'], ['label' => 'Blog', 'href' => '/blog']]],
+        ['title' => 'Perusahaan', 'items' => [['label' => 'Tentang', 'href' => '/software-house'], ['label' => 'Kontak', 'href' => '/software-house#kontak']]],
     ]"
     :socialLinks="[
         ['label' => 'GitHub', 'icon' => '🐙', 'href' => '#'],
         ['label' => 'Twitter', 'icon' => '🐦', 'href' => '#'],
+        ['label' => 'LinkedIn', 'icon' => '💼', 'href' => '#'],
     ]"
     copyright="© 2026 NexaDev. All rights reserved."
 />

@@ -11,6 +11,7 @@
     'readTime' => null,
     'views' => null,
     'href' => '#',
+    'horizontal' => false,       // layout horizontal (thumbnail kiri, teks kanan)
 ])
 
 @php
@@ -22,50 +23,72 @@
         'orange' => 'text-orange-600 dark:text-orange-400',
     ];
     $categoryColorClass = $categoryColors[$categoryColor] ?? $categoryColors['blue'];
+
+    // Gradient placeholder thumbnail (dipakai saat horizontal & tanpa image)
+    $placeholderGradients = [
+        'blue' => 'from-blue-500 to-indigo-600',
+        'green' => 'from-green-500 to-emerald-600',
+        'purple' => 'from-purple-500 to-violet-600',
+        'red' => 'from-red-500 to-rose-600',
+        'orange' => 'from-orange-500 to-amber-600',
+    ];
+    $placeholderGradient = $placeholderGradients[$categoryColor] ?? $placeholderGradients['blue'];
 @endphp
 
-<article class="group flex flex-col bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow h-full">
-    {{-- Image --}}
-    @if($image)
+<article class="group flex {{ $horizontal ? 'flex-row items-stretch' : 'flex-col h-full' }} bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-shadow">
+    {{-- Image / Thumbnail --}}
+    @if($horizontal)
+        <a href="{{ $href }}" class="w-40 sm:w-48 shrink-0 h-28 sm:h-32 bg-gray-100 dark:bg-gray-700 flex items-stretch">
+            @if($image)
+                <img src="{{ $image }}" alt="{{ $title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            @else
+                <div class="w-full h-full bg-gradient-to-br {{ $placeholderGradient }} flex items-center justify-center">
+                    <span class="text-4xl font-bold text-white/90">{{ strtoupper($category ? substr($category, 0, 1) : substr($title, 0, 1)) }}</span>
+                </div>
+            @endif
+        </a>
+    @elseif($image)
         <a href="{{ $href }}" class="block aspect-[16/9] overflow-hidden bg-gray-100 dark:bg-gray-700">
             <img src="{{ $image }}" alt="{{ $title }}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
         </a>
     @endif
 
     <div class="flex flex-col flex-1 p-5">
-        {{-- Category + Read time --}}
-        @if($category || $readTime)
-            <div class="flex items-center gap-2 text-xs mb-2">
-                @if($category)
-                    <span class="font-semibold {{ $categoryColorClass }}">{{ $category }}</span>
-                @endif
-                @if($readTime)
-                    <span class="text-gray-400 dark:text-gray-500">· {{ $readTime }} menit baca</span>
-                @endif
-            </div>
-        @endif
+        <div class="{{ $horizontal ? '' : 'flex-1' }}">
+            {{-- Category + Read time --}}
+            @if($category || $readTime)
+                <div class="flex items-center gap-2 text-xs mb-2">
+                    @if($category)
+                        <span class="font-semibold {{ $categoryColorClass }}">{{ $category }}</span>
+                    @endif
+                    @if($readTime)
+                        <span class="text-gray-400 dark:text-gray-500">· {{ $readTime }} menit baca</span>
+                    @endif
+                </div>
+            @endif
 
-        {{-- Title --}}
-        <a href="{{ $href }}">
-            <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
-                {{ $title }}
-            </h3>
-        </a>
+            {{-- Title --}}
+            <a href="{{ $href }}">
+                <h3 class="font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                    {{ $title }}
+                </h3>
+            </a>
 
-        {{-- Excerpt --}}
-        @if($excerpt)
-            <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400 line-clamp-2">{{ $excerpt }}</p>
-        @endif
+            {{-- Excerpt --}}
+            @if($excerpt)
+                <p class="mt-1.5 text-sm text-gray-500 dark:text-gray-400 {{ $horizontal ? 'line-clamp-1' : 'line-clamp-2' }}">{{ $excerpt }}</p>
+            @endif
+        </div>
 
         {{-- Author + Date --}}
         @if($author || $date)
-            <div class="flex items-center gap-2.5 mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
-                @if($authorAvatar)
-                    <img src="{{ $authorAvatar }}" alt="{{ $author }}" class="w-7 h-7 rounded-full object-cover flex-shrink-0" />
-                @elseif($author)
-                    <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{{ strtoupper(substr($author, 0, 2)) }}</div>
-                @endif
-                <div class="text-xs min-w-0 truncate">
+            @if($horizontal)
+                <div class="flex items-center gap-2.5 mt-3 text-xs min-w-0 truncate">
+                    @if($authorAvatar)
+                        <img src="{{ $authorAvatar }}" alt="{{ $author }}" class="w-6 h-6 rounded-full object-cover flex-shrink-0" />
+                    @elseif($author)
+                        <div class="w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-[10px] font-bold flex-shrink-0">{{ strtoupper(substr($author, 0, 2)) }}</div>
+                    @endif
                     @if($author)
                         <span class="text-gray-700 dark:text-gray-300 font-medium">{{ $author }}</span>
                     @endif
@@ -76,7 +99,26 @@
                         <span class="text-gray-400 dark:text-gray-500">· 👁️ {{ $views }}</span>
                     @endif
                 </div>
-            </div>
+            @else
+                <div class="flex items-center gap-2.5 mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
+                    @if($authorAvatar)
+                        <img src="{{ $authorAvatar }}" alt="{{ $author }}" class="w-7 h-7 rounded-full object-cover flex-shrink-0" />
+                    @elseif($author)
+                        <div class="w-7 h-7 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">{{ strtoupper(substr($author, 0, 2)) }}</div>
+                    @endif
+                    <div class="text-xs min-w-0 truncate">
+                        @if($author)
+                            <span class="text-gray-700 dark:text-gray-300 font-medium">{{ $author }}</span>
+                        @endif
+                        @if($date)
+                            <span class="text-gray-400 dark:text-gray-500">· {{ $date }}</span>
+                        @endif
+                        @if($views)
+                            <span class="text-gray-400 dark:text-gray-500">· 👁️ {{ $views }}</span>
+                        @endif
+                    </div>
+                </div>
+            @endif
         @endif
     </div>
 </article>

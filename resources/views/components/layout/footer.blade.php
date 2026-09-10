@@ -12,7 +12,7 @@
     $copyrightText = $copyright ?? "© {$year} {$brand}. All rights reserved.";
 @endphp
 
-<footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+<footer class="mt-auto bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800" style="margin-top:auto;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
